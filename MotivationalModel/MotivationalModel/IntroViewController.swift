@@ -15,14 +15,13 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var introBody: UILabel!
     @IBOutlet weak var nobLabel: UILabel!
     @IBOutlet weak var nobInputField: UITextField!
-
+    @IBOutlet weak var viewPropButtonOutlet: UIButton!
     
     //UIViewController inheritance functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Introduction"
-        
+        setupIntroView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,20 +29,21 @@ class IntroViewController: UIViewController {
         
     }
     
+    //Setup UI
+    func setupIntroView() {
+        self.navigationItem.title = "Introduction"
+        viewPropButtonOutlet.layer.cornerRadius = 10
+        
+    }
+    
+    
     // Button Functions
     @IBAction func menuButton(sender: UIBarButtonItem) {
-        let label = "  MENU BUTTON PRESSED  "
-        self.introBody.text = "\(self.introBody.text!) \(label)"
-        self.nobLabel.text = label
-        self.nobInputField.placeholder = label
+        self.performSegueWithIdentifier("MenuViewController", sender: nil)
     }
     
     @IBAction func viewPropButton(sender: UIButton) {
-        let label = "  VIEW PROP BUTTON PRESSED  "
-        self.introBody.text = "\(self.introBody.text!) \(label)"
-        self.nobLabel.text = label
-        self.nobInputField.placeholder = label
+        self.introBody.text = "View prop button pressed."
     }
     
 }
-

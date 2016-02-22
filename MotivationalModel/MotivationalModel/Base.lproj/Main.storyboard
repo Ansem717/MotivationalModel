@@ -6,6 +6,89 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="w8v-4j-jAu">
+            <objects>
+                <viewController id="jfz-qY-qJQ" customClass="MenuViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tkt-ze-Vua"/>
+                        <viewControllerLayoutGuide type="bottom" id="72V-p4-7b5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IIu-Fb-4lm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hR8-yw-MdU">
+                                <rect key="frame" x="0.0" y="72" width="600" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-lu-Cgm">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Home">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="homeButton:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="RyV-eT-PdJ"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="PET-HU-DOq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-hl-AeG">
+                                        <rect key="frame" x="0.0" y="61" width="600" height="56"/>
+                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Go To">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU0-kg-uHP">
+                                        <rect key="frame" x="0.0" y="123" width="600" height="55"/>
+                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="E-mail">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poX-9N-uv8">
+                                        <rect key="frame" x="0.0" y="184" width="600" height="56"/>
+                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Print">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-zE-oo0">
+                                        <rect key="frame" x="0.0" y="245" width="600" height="55"/>
+                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="About">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="KYk-Lk-Z0T"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.018844159572116451" green="0.42119391025641029" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hR8-yw-MdU" secondAttribute="trailing" constant="-20" id="Awc-UE-Jzn"/>
+                            <constraint firstItem="hR8-yw-MdU" firstAttribute="leading" secondItem="IIu-Fb-4lm" secondAttribute="leadingMargin" constant="-20" id="Nxc-dR-BdK"/>
+                            <constraint firstItem="hR8-yw-MdU" firstAttribute="top" secondItem="Tkt-ze-Vua" secondAttribute="bottom" constant="52" id="k51-Vr-Xio"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yi2-45-3Pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="-239"/>
+        </scene>
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,66 +101,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intro Body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
-                                <rect key="frame" x="20" y="72" width="560" height="403"/>
-                                <color key="backgroundColor" white="0.70983297413793101" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="403" id="05a-eR-BYn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44F-OF-P3g">
-                                <rect key="frame" x="26" y="512" width="549" height="30"/>
+                                <rect key="frame" x="26" y="505" width="549" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jwL-YY-3P7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Jj-BxP">
-                                <rect key="frame" x="21" y="550" width="560" height="30"/>
-                                <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="Go to View Proposition"/>
-                                <connections>
-                                    <action selector="viewPropButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLC-j2-bNN"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Business:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIT-Yf-5QU">
-                                <rect key="frame" x="230" y="483" width="142" height="21"/>
+                                <rect key="frame" x="230" y="473" width="142.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Wn8-Nw-t5H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intro Body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
+                                <rect key="frame" x="20" y="93" width="560" height="370"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Jj-BxP">
+                                <rect key="frame" x="21" y="543" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <size key="titleShadowOffset" width="2" height="2"/>
+                                <state key="normal" title="Go to View Proposition">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewPropButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLC-j2-bNN"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="8" id="2Ay-9W-GGf"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="11" id="2Ay-9W-GGf"/>
                             <constraint firstItem="ZLC-Jj-BxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="451-RE-n15"/>
                             <constraint firstItem="CL9-eU-Caf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ENk-uD-FDL"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="8" id="Iib-Qb-mrz"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="8" id="Knv-im-rQ6"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="10" id="Iib-Qb-mrz"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="10" id="Knv-im-rQ6"/>
                             <constraint firstItem="ZLC-Jj-BxP" firstAttribute="top" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="8" id="Qfc-WV-VU5"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="8" id="RAG-dx-bvT"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="11" id="RAG-dx-bvT"/>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="CL9-eU-Caf" secondAttribute="leading" constant="6" id="coh-A5-WgA"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="g1g-KG-xfq"/>
-                            <constraint firstAttribute="bottom" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="58" id="hb3-ga-3Mj"/>
+                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="73" id="g1g-KG-xfq"/>
+                            <constraint firstAttribute="bottom" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="65" id="hb3-ga-3Mj"/>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="ZLC-Jj-BxP" secondAttribute="leading" constant="5" id="jv1-kJ-v3w"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="ptu-jN-45C"/>
                             <constraint firstItem="CL9-eU-Caf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rHa-lW-JvR"/>
                             <constraint firstItem="SIT-Yf-5QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="snY-ka-4Dx"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLC-Jj-BxP" secondAttribute="bottom" constant="20" id="yxG-18-Uye"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLC-Jj-BxP" secondAttribute="bottom" constant="27" id="yxG-18-Uye"/>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zKM-qF-x8S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y1s-y3-EL8">
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="kCN-zH-apL">
                             <connections>
-                                <action selector="menuButton:" destination="BYZ-38-t0r" id="dSh-5S-gIH"/>
+                                <action selector="menuButton:" destination="BYZ-38-t0r" id="YtZ-m9-FzL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -85,18 +168,20 @@
                         <outlet property="introBody" destination="CL9-eU-Caf" id="a9V-mb-vd7"/>
                         <outlet property="nobInputField" destination="44F-OF-P3g" id="NQB-ln-hqB"/>
                         <outlet property="nobLabel" destination="SIT-Yf-5QU" id="XSO-ev-aI0"/>
+                        <outlet property="viewPropButtonOutlet" destination="ZLC-Jj-BxP" id="dGq-HO-kBL"/>
+                        <segue destination="jfz-qY-qJQ" kind="presentation" identifier="MenuViewController" id="zhm-vD-zEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="349"/>
+            <point key="canvasLocation" x="994" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdb-jt-0rv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wPQ-Jb-npn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r8D-IQ-H0C">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="r8D-IQ-H0C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -110,4 +195,7 @@
             <point key="canvasLocation" x="242" y="349"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PET-HU-DOq"/>
+    </inferredMetricsTieBreakers>
 </document>
