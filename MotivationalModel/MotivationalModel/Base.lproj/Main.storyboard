@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yi2-45-3Pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="-239"/>
+            <point key="canvasLocation" x="1667" y="-91"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -115,14 +115,14 @@
                                     <constraint firstAttribute="height" constant="21" id="Wn8-Nw-t5H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intro Body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
-                                <rect key="frame" x="20" y="93" width="560" height="370"/>
-                                <color key="backgroundColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="28" width="560" height="435"/>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Jj-BxP">
@@ -139,7 +139,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.24522860738255034" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="11" id="2Ay-9W-GGf"/>
                             <constraint firstItem="ZLC-Jj-BxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="451-RE-n15"/>
@@ -149,7 +149,7 @@
                             <constraint firstItem="ZLC-Jj-BxP" firstAttribute="top" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="8" id="Qfc-WV-VU5"/>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="11" id="RAG-dx-bvT"/>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="CL9-eU-Caf" secondAttribute="leading" constant="6" id="coh-A5-WgA"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="73" id="g1g-KG-xfq"/>
+                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="g1g-KG-xfq"/>
                             <constraint firstAttribute="bottom" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="65" id="hb3-ga-3Mj"/>
                             <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="ZLC-Jj-BxP" secondAttribute="leading" constant="5" id="jv1-kJ-v3w"/>
                             <constraint firstItem="CL9-eU-Caf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rHa-lW-JvR"/>
@@ -170,17 +170,17 @@
                         <outlet property="nobInputField" destination="44F-OF-P3g" id="NQB-ln-hqB"/>
                         <outlet property="nobLabel" destination="SIT-Yf-5QU" id="XSO-ev-aI0"/>
                         <outlet property="viewPropButtonOutlet" destination="ZLC-Jj-BxP" id="dGq-HO-kBL"/>
-                        <segue destination="jfz-qY-qJQ" kind="presentation" identifier="MenuViewController" id="zhm-vD-zEO"/>
+                        <segue destination="jfz-qY-qJQ" kind="show" identifier="MenuViewController" id="zhm-vD-zEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="894" y="311"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="eOx-Ok-tXy">
             <objects>
-                <viewController id="XCk-Je-x53" sceneMemberID="viewController">
+                <viewController id="XCk-Je-x53" customClass="MenuViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3MI-Ze-NSn"/>
                         <viewControllerLayoutGuide type="bottom" id="O7b-7A-Ut7"/>
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xc-KM-6Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="638"/>
+            <point key="canvasLocation" x="1672" y="662"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdb-jt-0rv">
@@ -211,7 +211,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9X-WH-thv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242" y="349"/>
+            <point key="canvasLocation" x="166" y="311"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

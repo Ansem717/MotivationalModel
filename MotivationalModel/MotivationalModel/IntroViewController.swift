@@ -21,6 +21,10 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         setupIntroView()
     }
 
@@ -43,11 +47,10 @@ class IntroViewController: UIViewController {
     }
     
     @IBAction func viewPropButton(sender: UIButton) {
-        self.introBody.text = "View prop button pressed."
+        //
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
         self.navigationItem.title = "EBM"
     }
     
