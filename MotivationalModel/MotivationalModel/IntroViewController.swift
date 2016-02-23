@@ -31,7 +31,7 @@ class IntroViewController: UIViewController {
     
     //Setup UI
     func setupIntroView() {
-        self.navigationItem.title = "Introduction"
+        self.navigationItem.title = "Enterprise Business Model"
         viewPropButtonOutlet.layer.cornerRadius = 10
         
     }
@@ -44,6 +44,11 @@ class IntroViewController: UIViewController {
     
     @IBAction func viewPropButton(sender: UIButton) {
         self.introBody.text = "View prop button pressed."
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        self.navigationItem.title = "EBM"
     }
     
 }
