@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hR8-yw-MdU">
-                                <rect key="frame" x="0.0" y="72" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="350"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-lu-Cgm">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
                                         <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +35,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-hl-AeG">
-                                        <rect key="frame" x="0.0" y="61" width="600" height="56"/>
+                                        <rect key="frame" x="0.0" y="71" width="600" height="66"/>
                                         <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +44,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU0-kg-uHP">
-                                        <rect key="frame" x="0.0" y="123" width="600" height="55"/>
+                                        <rect key="frame" x="0.0" y="143" width="600" height="65"/>
                                         <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,7 +53,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poX-9N-uv8">
-                                        <rect key="frame" x="0.0" y="184" width="600" height="56"/>
+                                        <rect key="frame" x="0.0" y="214" width="600" height="66"/>
                                         <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,7 +62,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-zE-oo0">
-                                        <rect key="frame" x="0.0" y="245" width="600" height="55"/>
+                                        <rect key="frame" x="0.0" y="285" width="600" height="65"/>
                                         <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,14 +74,20 @@
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="KYk-Lk-Z0T"/>
+                                    <constraint firstAttribute="height" constant="350" id="ShH-je-f1r"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="KYk-Lk-Z0T"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.018844159572116451" green="0.42119391025641029" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hR8-yw-MdU" secondAttribute="trailing" constant="-20" id="Awc-UE-Jzn"/>
                             <constraint firstItem="hR8-yw-MdU" firstAttribute="leading" secondItem="IIu-Fb-4lm" secondAttribute="leadingMargin" constant="-20" id="Nxc-dR-BdK"/>
-                            <constraint firstItem="hR8-yw-MdU" firstAttribute="top" secondItem="Tkt-ze-Vua" secondAttribute="bottom" constant="52" id="k51-Vr-Xio"/>
+                            <constraint firstItem="hR8-yw-MdU" firstAttribute="top" secondItem="Tkt-ze-Vua" secondAttribute="bottom" constant="8" id="k51-Vr-Xio"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -177,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="894" y="311"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Adaptive View Controller-->
         <scene sceneID="eOx-Ok-tXy">
             <objects>
-                <viewController id="XCk-Je-x53" customClass="MenuViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XCk-Je-x53" customClass="AdaptiveViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3MI-Ze-NSn"/>
                         <viewControllerLayoutGuide type="bottom" id="O7b-7A-Ut7"/>

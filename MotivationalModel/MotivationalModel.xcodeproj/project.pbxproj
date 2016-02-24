@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E9246BF81C77818E0017002B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9246BF71C77818E0017002B /* MenuViewController.swift */; };
 		E9246BFD1C77879E0017002B /* UnicodeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9246BFC1C77879E0017002B /* UnicodeIcons.swift */; };
+		E92B76651C7E09F3003B44DD /* AdaptiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */; };
 		E9CBEC571C703F960070AD2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBEC561C703F960070AD2C /* AppDelegate.swift */; };
 		E9CBEC591C703F960070AD2C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBEC581C703F960070AD2C /* IntroViewController.swift */; };
 		E9CBEC5C1C703F960070AD2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9CBEC5A1C703F960070AD2C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		E9246BF71C77818E0017002B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E9246BFC1C77879E0017002B /* UnicodeIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeIcons.swift; sourceTree = "<group>"; };
+		E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveViewController.swift; sourceTree = "<group>"; };
 		E9CBEC531C703F960070AD2C /* MotivationalModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotivationalModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CBEC561C703F960070AD2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9CBEC581C703F960070AD2C /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				E9CBEC581C703F960070AD2C /* IntroViewController.swift */,
 				E9246BF71C77818E0017002B /* MenuViewController.swift */,
+				E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				E9CBEC5F1C703F960070AD2C /* MotivationalModel.xcdatamodeld in Sources */,
 				E9CBEC591C703F960070AD2C /* IntroViewController.swift in Sources */,
 				E9CBEC571C703F960070AD2C /* AppDelegate.swift in Sources */,
+				E92B76651C7E09F3003B44DD /* AdaptiveViewController.swift in Sources */,
 				E9246BF81C77818E0017002B /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
