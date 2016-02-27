@@ -18,57 +18,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hR8-yw-MdU">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hR8-yw-MdU">
                                 <rect key="frame" x="0.0" y="28" width="600" height="350"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-lu-Cgm">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
-                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
-                                        <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.038459521812080538" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Home">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.058823529411764705" green="0.25098039215686274" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="homeButton:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="RyV-eT-PdJ"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="PET-HU-DOq"/>
+                                            <segue destination="gDD-CA-iPX" kind="unwind" unwindAction="unwindToHome:" id="oR8-a2-gpy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-hl-AeG">
-                                        <rect key="frame" x="0.0" y="71" width="600" height="66"/>
-                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="59" width="600" height="55.5"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Go To">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.058823529409999999" green="0.25098039220000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="menuButtonPressed:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="gfc-TL-CI2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU0-kg-uHP">
-                                        <rect key="frame" x="0.0" y="143" width="600" height="65"/>
-                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="117.5" width="600" height="56"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="E-mail">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="menuButtonPressed:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="mVw-fJ-vTw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poX-9N-uv8">
-                                        <rect key="frame" x="0.0" y="214" width="600" height="66"/>
-                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="176" width="600" height="56"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Print">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="menuButtonPressed:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="cSR-gp-q17"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvd-zE-oo0">
-                                        <rect key="frame" x="0.0" y="285" width="600" height="65"/>
-                                        <color key="backgroundColor" red="0.050980392156862744" green="0.31372549019607843" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="235" width="600" height="55.5"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522435897438" green="0.84076522435897438" blue="0.84076522435897438" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="About">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="menuButtonPressed:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="mXm-0c-dyA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdN-bO-YfR">
+                                        <rect key="frame" x="0.0" y="294" width="600" height="56"/>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.61504407051282051" green="0.0" blue="0.11481640440752403" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="menuButtonPressed:" destination="jfz-qY-qJQ" eventType="touchUpInside" id="Dxt-ey-Cuj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,7 +105,7 @@
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.018844159572116451" green="0.42119391025641029" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509805" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hR8-yw-MdU" secondAttribute="trailing" constant="-20" id="Awc-UE-Jzn"/>
                             <constraint firstItem="hR8-yw-MdU" firstAttribute="leading" secondItem="IIu-Fb-4lm" secondAttribute="leadingMargin" constant="-20" id="Nxc-dR-BdK"/>
@@ -92,8 +114,9 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yi2-45-3Pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gDD-CA-iPX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="-91"/>
+            <point key="canvasLocation" x="1678" y="-505"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -108,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44F-OF-P3g">
-                                <rect key="frame" x="26" y="505" width="549" height="30"/>
+                                <rect key="frame" x="27" y="459" width="549" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jwL-YY-3P7"/>
                                 </constraints>
@@ -116,7 +139,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Business:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIT-Yf-5QU">
-                                <rect key="frame" x="230" y="473" width="142.5" height="21"/>
+                                <rect key="frame" x="228" y="430" width="142.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Wn8-Nw-t5H"/>
                                 </constraints>
@@ -124,19 +147,28 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intro Body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
-                                <rect key="frame" x="20" y="28" width="560" height="435"/>
-                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="17"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGH-Zh-BWw">
+                                <rect key="frame" x="20" y="72" width="560" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="vO8-gu-OJ9"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
+                                <rect key="frame" x="32" y="45" width="535" height="320"/>
+                                <mutableString key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
+ 
+Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </mutableString>
+                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="18"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Jj-BxP">
-                                <rect key="frame" x="21" y="543" width="560" height="30"/>
+                                <rect key="frame" x="20" y="519" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
-                                <state key="normal" title="Go to View Proposition">
+                                <state key="normal" title="Go to Value Proposition">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -145,43 +177,44 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.24522860738255034" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="11" id="2Ay-9W-GGf"/>
-                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="451-RE-n15"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ENk-uD-FDL"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="10" id="Iib-Qb-mrz"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="10" id="Knv-im-rQ6"/>
-                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="top" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="8" id="Qfc-WV-VU5"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="11" id="RAG-dx-bvT"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="CL9-eU-Caf" secondAttribute="leading" constant="6" id="coh-A5-WgA"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="g1g-KG-xfq"/>
-                            <constraint firstAttribute="bottom" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="65" id="hb3-ga-3Mj"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="ZLC-Jj-BxP" secondAttribute="leading" constant="5" id="jv1-kJ-v3w"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rHa-lW-JvR"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="snY-ka-4Dx"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLC-Jj-BxP" secondAttribute="bottom" constant="27" id="yxG-18-Uye"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zKM-qF-x8S"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="8" id="2Ay-9W-GGf"/>
+                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="451-RE-n15"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLC-Jj-BxP" secondAttribute="bottom" constant="51" id="84M-Cb-RSt"/>
+                            <constraint firstAttribute="trailing" secondItem="nGH-Zh-BWw" secondAttribute="trailing" constant="20" id="9S6-y1-4J3"/>
+                            <constraint firstItem="CL9-eU-Caf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-13" id="ENk-uD-FDL"/>
+                            <constraint firstItem="nGH-Zh-BWw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="K5c-Ml-WGc"/>
+                            <constraint firstItem="nGH-Zh-BWw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="KI2-tf-rQm"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="65" id="Knv-im-rQ6"/>
+                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="top" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="30" id="Qfc-WV-VU5"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="CL9-eU-Caf" secondAttribute="leading" constant="-5" id="coh-A5-WgA"/>
+                            <constraint firstAttribute="bottom" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="111" id="hb3-ga-3Mj"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="ZLC-Jj-BxP" secondAttribute="leading" constant="7" id="jv1-kJ-v3w"/>
+                            <constraint firstItem="CL9-eU-Caf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="rHa-lW-JvR"/>
+                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-19" id="saF-qN-msM"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.75" id="snY-ka-4Dx"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1.5" id="zKM-qF-x8S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y1s-y3-EL8">
-                        <barButtonItem key="rightBarButtonItem" title="Menu" id="kCN-zH-apL">
+                        <barButtonItem key="rightBarButtonItem" tag="1351421" title="Menu" id="ZGs-oY-q1i">
                             <connections>
-                                <action selector="menuButton:" destination="BYZ-38-t0r" id="YtZ-m9-FzL"/>
+                                <segue destination="jfz-qY-qJQ" kind="presentation" identifier="HomeToMenu" id="BTX-Fs-qy7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="introBody" destination="CL9-eU-Caf" id="a9V-mb-vd7"/>
                         <outlet property="nobInputField" destination="44F-OF-P3g" id="NQB-ln-hqB"/>
                         <outlet property="nobLabel" destination="SIT-Yf-5QU" id="XSO-ev-aI0"/>
                         <outlet property="viewPropButtonOutlet" destination="ZLC-Jj-BxP" id="dGq-HO-kBL"/>
-                        <segue destination="jfz-qY-qJQ" kind="show" identifier="MenuViewController" id="zhm-vD-zEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="311"/>
+            <point key="canvasLocation" x="918" y="311"/>
         </scene>
         <!--Adaptive View Controller-->
         <scene sceneID="eOx-Ok-tXy">
@@ -194,12 +227,119 @@
                     <view key="view" contentMode="scaleToFill" id="SkI-Dj-TTh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-qX-2aM">
+                                <rect key="frame" x="20" y="80" width="560" height="145"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.039215686274509803" green="0.14509803921568629" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hof-VT-HRU">
+                                <rect key="frame" x="20" y="246" width="560" height="206"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZI-Xe-KYl">
+                                        <rect key="frame" x="13" y="16" width="534" height="162.5"/>
+                                        <string key="text">The central notion of a business model, the value proposition describes how the enterprise, through its activities, adds value to the consumer or marketplace. The Value proposition binds together the notions of customer demands, required competencies, revenue models and business partnerships.  It is a statement from the viewpoint of the target customers that informs everyone "why" the business' products and services are valuable.
+</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.039215686274509803" green="0.14509803921568626" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="EZI-Xe-KYl" firstAttribute="leading" secondItem="Hof-VT-HRU" secondAttribute="leadingMargin" constant="5" id="36e-oo-Jmm"/>
+                                    <constraint firstItem="EZI-Xe-KYl" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="topMargin" constant="8" id="do8-FQ-AI4"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="EZI-Xe-KYl" secondAttribute="trailing" constant="5" id="imD-iv-LaB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2G-6f-Uji">
+                                <rect key="frame" x="20" y="500" width="74" height="30"/>
+                                <state key="normal" title="ButtonOne"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="dCz-cb-mtF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KL-Rc-Czn">
+                                <rect key="frame" x="102" y="500" width="55" height="30"/>
+                                <state key="normal" title="Button2"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="Thp-mb-acX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-dQ-fCZ">
+                                <rect key="frame" x="165" y="500" width="55" height="30"/>
+                                <state key="normal" title="Button3"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="IHL-VY-hcY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-C7-gnZ">
+                                <rect key="frame" x="228" y="500" width="56" height="30"/>
+                                <state key="normal" title="Button4"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="egf-Eg-A0e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NA-GC-Vgq">
+                                <rect key="frame" x="292" y="500" width="59" height="30"/>
+                                <state key="normal" title="Button5 "/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="VJL-uR-bX0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ga9-qX-2aM" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="16" id="0xR-3l-Bfm"/>
+                            <constraint firstAttribute="trailing" secondItem="Hof-VT-HRU" secondAttribute="trailing" constant="20" id="4WT-VW-vjl"/>
+                            <constraint firstItem="Hof-VT-HRU" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="7aC-YO-MvU"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="e0O-C7-gnZ" secondAttribute="baseline" id="Adt-Ae-AP0"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="JgF-dQ-fCZ" secondAttribute="baseline" id="IMZ-8u-lvy"/>
+                            <constraint firstItem="Hof-VT-HRU" firstAttribute="top" secondItem="Ga9-qX-2aM" secondAttribute="bottom" constant="21" id="KHM-AF-c0z"/>
+                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="Keg-sQ-3aH"/>
+                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="U6v-DS-4Ak"/>
+                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="n2G-6f-Uji" secondAttribute="trailing" constant="8" symbolic="YES" id="WMW-RT-pD9"/>
+                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="e0O-C7-gnZ" secondAttribute="trailing" constant="8" id="WsR-UH-DIk"/>
+                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="8KL-Rc-Czn" secondAttribute="trailing" constant="8" id="XKW-4g-9D1"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="Y1q-JK-jGZ"/>
+                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="JgF-dQ-fCZ" secondAttribute="trailing" constant="8" id="a4v-kW-vT4"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="n2G-6f-Uji" secondAttribute="bottom" constant="70" id="aNr-2e-08u"/>
+                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="n2G-6f-Uji" secondAttribute="trailing" constant="8" id="bqB-gf-wzE"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="d4v-PU-GSy"/>
+                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="fsK-fU-vzk"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="0NA-GC-Vgq" secondAttribute="baseline" id="ftr-oE-PLK"/>
+                            <constraint firstItem="Hof-VT-HRU" firstAttribute="top" secondItem="SkI-Dj-TTh" secondAttribute="top" constant="246" id="l6c-I3-mLf"/>
+                            <constraint firstItem="Ga9-qX-2aM" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="mqf-1A-8SD"/>
+                            <constraint firstAttribute="trailing" secondItem="Ga9-qX-2aM" secondAttribute="trailing" constant="20" id="nNX-MR-brR"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="8KL-Rc-Czn" secondAttribute="baseline" id="sIY-TF-6ia"/>
+                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="xyL-UB-YiS"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Jf5-cf-z3I">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="jl6-te-c3k">
+                            <connections>
+                                <segue destination="jfz-qY-qJQ" kind="presentation" id="qWp-Ru-Fal"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="EZI-Xe-KYl" id="o6F-6a-bbJ"/>
+                        <outlet property="fifthButton" destination="0NA-GC-Vgq" id="oDO-Ii-fb4"/>
+                        <outlet property="firstButton" destination="n2G-6f-Uji" id="XZr-w6-3Sb"/>
+                        <outlet property="fourthButton" destination="e0O-C7-gnZ" id="qix-mR-yTq"/>
+                        <outlet property="secondButton" destination="8KL-Rc-Czn" id="CzH-gt-E14"/>
+                        <outlet property="thirdButton" destination="JgF-dQ-fCZ" id="uaK-RN-33w"/>
+                        <outlet property="userInputArea" destination="Ga9-qX-2aM" id="V1l-u2-KFJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xc-KM-6Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672" y="662"/>
+            <point key="canvasLocation" x="1678" y="311"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdb-jt-0rv">
@@ -221,6 +361,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PET-HU-DOq"/>
+        <segue reference="BTX-Fs-qy7"/>
     </inferredMetricsTieBreakers>
 </document>

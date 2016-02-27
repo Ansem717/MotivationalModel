@@ -26,4 +26,11 @@ class Icons {
         mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSMakeRange(0, 1))
         return mutableString
     }
+    
+    func prefixRedWarning(text: String) -> NSMutableAttributedString {
+        let applyPrefix = "\(self.exclamation) \(text)"
+        let mutableString = NSMutableAttributedString(string: applyPrefix)
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, 1))
+        return mutableString
+    }
 }

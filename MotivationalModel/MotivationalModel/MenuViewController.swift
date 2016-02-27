@@ -28,9 +28,33 @@ class MenuViewController: UIViewController {
     func setupMenu() {
         
     }
+
+    //MARK: Button Function
+
+    //temp testing var
+    var x = 0
     
-    @IBAction func homeButton(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func menuButtonPressed(sender: UIButton) {
+        guard let buttonName = sender.titleLabel!.text else { fatalError("Uhh?") }
+        
+        switch (buttonName) {
+            //Home is omitted since we're just using an unwind segue
+            case "Go To":
+                print("Go to Pressed!!")
+            case "E-mail":
+                print("E-mail Pressed!!")
+            case "Print":
+                print("Print Pressed!!")
+            case "About":
+                print("About Pressed!!")
+            case "Close":
+                dismissViewControllerAnimated(true, completion: nil)
+            default:
+                print("Wait, what did you do?")
+        }
+        
+        
     }
+
     
 }

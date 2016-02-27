@@ -10,6 +10,10 @@
 		E9246BF81C77818E0017002B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9246BF71C77818E0017002B /* MenuViewController.swift */; };
 		E9246BFD1C77879E0017002B /* UnicodeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9246BFC1C77879E0017002B /* UnicodeIcons.swift */; };
 		E92B76651C7E09F3003B44DD /* AdaptiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */; };
+		E9BEBC791C80ED21006F06A5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC781C80ED21006F06A5 /* Room.swift */; };
+		E9BEBC7B1C80F049006F06A5 /* NavStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC7A1C80F049006F06A5 /* NavStack.swift */; };
+		E9BEBC7D1C80F0C3006F06A5 /* NavStackROOM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */; };
+		E9BEBC7F1C810C20006F06A5 /* RoomsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC7E1C810C20006F06A5 /* RoomsCache.swift */; };
 		E9CBEC571C703F960070AD2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBEC561C703F960070AD2C /* AppDelegate.swift */; };
 		E9CBEC591C703F960070AD2C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBEC581C703F960070AD2C /* IntroViewController.swift */; };
 		E9CBEC5C1C703F960070AD2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9CBEC5A1C703F960070AD2C /* Main.storyboard */; };
@@ -22,6 +26,10 @@
 		E9246BF71C77818E0017002B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E9246BFC1C77879E0017002B /* UnicodeIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeIcons.swift; sourceTree = "<group>"; };
 		E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveViewController.swift; sourceTree = "<group>"; };
+		E9BEBC781C80ED21006F06A5 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		E9BEBC7A1C80F049006F06A5 /* NavStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavStack.swift; sourceTree = "<group>"; };
+		E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavStackROOM.swift; sourceTree = "<group>"; };
+		E9BEBC7E1C810C20006F06A5 /* RoomsCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsCache.swift; sourceTree = "<group>"; };
 		E9CBEC531C703F960070AD2C /* MotivationalModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotivationalModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CBEC561C703F960070AD2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9CBEC581C703F960070AD2C /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +55,10 @@
 			isa = PBXGroup;
 			children = (
 				E9246BFC1C77879E0017002B /* UnicodeIcons.swift */,
+				E9BEBC781C80ED21006F06A5 /* Room.swift */,
+				E9BEBC7E1C810C20006F06A5 /* RoomsCache.swift */,
+				E9BEBC7A1C80F049006F06A5 /* NavStack.swift */,
+				E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,8 +192,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BEBC7B1C80F049006F06A5 /* NavStack.swift in Sources */,
 				E9246BFD1C77879E0017002B /* UnicodeIcons.swift in Sources */,
+				E9BEBC7D1C80F0C3006F06A5 /* NavStackROOM.swift in Sources */,
 				E9CBEC5F1C703F960070AD2C /* MotivationalModel.xcdatamodeld in Sources */,
+				E9BEBC7F1C810C20006F06A5 /* RoomsCache.swift in Sources */,
+				E9BEBC791C80ED21006F06A5 /* Room.swift in Sources */,
 				E9CBEC591C703F960070AD2C /* IntroViewController.swift in Sources */,
 				E9CBEC571C703F960070AD2C /* AppDelegate.swift in Sources */,
 				E92B76651C7E09F3003B44DD /* AdaptiveViewController.swift in Sources */,
