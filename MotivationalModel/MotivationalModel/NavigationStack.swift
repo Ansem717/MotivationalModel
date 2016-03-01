@@ -19,7 +19,7 @@ class NavigationStack {
         return head.key == nil
     }
     
-    func contents() {
+    func printContents() {
         var current: NavigationStackRoom? = head
         var index: Int = 0
         

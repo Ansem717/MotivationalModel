@@ -37,10 +37,12 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        //Edit some Styles
+        //Stylization
         descriptionLabel.backgroundColor = UIColor(white: 0.8, alpha: 0.9)
         descriptionLabel.editable = false
         descriptionLabel.font = UIFont(name: "Helvetica", size: 17.0)
+        descriptionLabel.layer.cornerRadius = 5.0
+        userInputArea.layer.cornerRadius = 5.0
         view.addSubview(descriptionLabel)
         
         for button in buttonsUIArray {
@@ -49,11 +51,11 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
             button.tintColor = UIColor(red: 0x88, green: 0xC3, blue: 0x87, alpha: 0.8)
         }
         
+        setup()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        setup()
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +74,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         print("AdaptVC Setup - parameter roomName: \(roomName)");print("");
         let nextRoom = RoomsCache.shared.currentRoom(roomName)
         NavigationStack.shared.addRoomToNavigationStack(roomName)
-        NavigationStack.shared.contents()
+        NavigationStack.shared.printContents()
         
         // What happens when a user already set a room value, then went to Home in the menu, then pressed the Value Prop button? I'll just have to find out.
         // Seems it kills the <#currRoom#> variable
@@ -82,7 +84,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         if let current = self.currRoom {
             prevRoomShorthand = current.abbreviation
             if let userText = self.userInputArea.text {
-                RoomsCache.shared.saveRoom(userText, roomName: roomName)
+                RoomsCache.shared.saveRoom(userText, roomName: current.title)
             }
             for key in current.buttons {
                 if roomName == key {
@@ -193,9 +195,6 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
-    
-    
     //MARK: Animation Functions
     func animateLEAVE(completion: (finished: Bool) -> ()) {
     
@@ -258,7 +257,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         leadingUserInputConstraint.constant = 20.0
         trailingUserInputConstraint.constant = 20.0
         
-        UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
+        UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.0, options: .CurveEaseOut, animations: { () -> Void in
             self.userInputArea.layoutIfNeeded()
         }, completion: { (finished) -> Void in
             self.userInputArea.scrollRangeToVisible(NSRange(location: 0, length: 0))
@@ -267,7 +266,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         leadingDescriptionConstraint.constant = 20.0
         trailingDescriptionConstraint.constant = 20.0
         
-        UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.5, options: .CurveLinear, animations: { () -> Void in
+        UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.3, options: .CurveEaseOut, animations: { () -> Void in
             self.descriptionLabel.layoutIfNeeded()
         }, completion: { (finished) -> Void in
             self.descriptionLabel.scrollRangeToVisible(NSRange(location: 0, length: 0))
@@ -293,6 +292,13 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let current = self.currRoom {
+            if let userText = self.userInputArea.text {
+                RoomsCache.shared.saveRoom(userText, roomName: current.title)
+            }
+        }
+    }
     
     
 }

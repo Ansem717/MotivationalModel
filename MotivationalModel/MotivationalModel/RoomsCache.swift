@@ -24,7 +24,14 @@ let kCostAndRev = "Cost And Revenue"         //C&R -> R/A, C, PT
 class RoomsCache { //Singleton to form the rooms - permanently
     
     static let shared = RoomsCache()
-    private init() {}
+    private init()
+    {
+        guard let data = NSData(contentsOfURL: NSURL.archiveURL()) else { return }
+        
+        guard let archivedRooms = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Room] else { return }
+        
+        self.rooms = archivedRooms
+    }
     
     var rooms = [
         Room(
@@ -38,7 +45,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kValueProp,
             subtitle: "",
             abbreviation: "VP",
-            descript: "The central notion of a business model, the value proposition describes how the enterprise, through its activities, adds value to the consumer or marketplace. The Value proposition binds together the notions of customer demands, required competencies, revenue models and business partnerships.  It is a statement from the viewpoint of the target customers that informs everyone \"why\" the business' products and services are valuable.",
+            descript: "The central notion of a business model, the value proposition describes how the enterprise, through its activities, adds value to the consumer or marketplace. The Value proposition binds together the notions of customer demands, required competencies, revenue models and business partnerships. It is a statement from the viewpoint of the target customers that informs everyone \"why\" the business' products and services are valuable.",
             buttons: [kRequiredComp, kCustomerNeeds]
         ),
         Room(
@@ -66,7 +73,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kChannels,
             subtitle: "",
             abbreviation: "C",
-            descript: "This entity represents sales, distribution and communication channels in the business model. Distribution channels are the mechanisms by which the customer's product or service reaches the customer. For products, the distribution channels element will describe the flow of goods from manufacturing to market, including inventory and retailing. For manufacturing organizations, this element also describes the sourcing of parts and construction of the product or products themselves. For services, this element describes the location, management, and provisioning of service resources to the customers on an as-needed basis. Sales channels are the mechanisms by which the product or service is sold to the customer.  This typically includes owned retail, owned online, partner retail, partner online, and mobile salesforce. Communication channels include the mechanisms by which the product's availability and features are described to the customer.  This includes advertising (TV, Radio, Print, Internet, Mobile, Billboard, Direct mail, In-store, In-partner-store) as well as word of mouth, event promotions, and seminars.",
+            descript: "This entity represents sales, distribution and communication channels in the business model. Distribution channels are the mechanisms by which the customer's product or service reaches the customer.\n\n\(Icons.shared.bullet)  For products, the distribution channels element will describe the flow of goods from manufacturing to market, including inventory and retailing.\n\n\(Icons.shared.bullet)  For manufacturing organizations, this element also describes the sourcing of parts and construction of the product or products themselves. \n\n\(Icons.shared.bullet)  For services, this element describes the location, management, and provisioning of service resources to the customers on an as-needed basis. Sales channels are the mechanisms by which the product or service is sold to the customer. This typically includes owned retail, owned online, partner retail, partner online, and mobile salesforce.\n\nCommunication channels include the mechanisms by which the product's availability and features are described to the customer.  This includes advertising (TV, Radio, Print, Internet, Mobile, Billboard, Direct mail, In-store, In-partner-store) as well as word of mouth, event promotions, and seminars.",
             buttons: [kCostAndRev, kProdAndServ, kCustomerType, kGeoAndLocal, kPartnerType]
         ),
         Room(
@@ -80,7 +87,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kPartnerType,
             subtitle: "",
             abbreviation: "PT",
-            descript: "The business partner type describes the relationship between the enterprise and external entities that that cooperate to provide value. Partner types include: suppliers, vendors, sales partners, agents, service providers, distributors, retailers, and value-added resellers. These connections can define success for a business by allowing for specific efficiencies of capital, resources, and shared risk. They can also provide a disincentive to competition against a key parther, therefore constraining the activities and strategies of an enterprise.",
+            descript: "The business partner type describes the relationship between the enterprise and external entities that that cooperate to provide value. Partner types include: suppliers, vendors, sales partners, agents, service providers, distributors, retailers, and value-added resellers. \n\nThese connections can define success for a business by allowing for specific efficiencies of capital, resources, and shared risk. They can also provide a disincentive to competition against a key parther, therefore constraining the activities and strategies of an enterprise.",
             buttons: [kCostAndRev, kGeoAndLocal, kChannels, kRequiredComp]
         ),
         Room(
@@ -114,9 +121,10 @@ class RoomsCache { //Singleton to form the rooms - permanently
     
     func saveRoom(textFromUser: String, roomName: String) {
         let currRoom = currentRoom(roomName)
-        print(currRoom.title)
-        print("SAVE FUNCTION MISSING - RoomsCache.swift")
-        print("");
+        currRoom.userText = textFromUser //Temporary Save by updating array
+        
+        NSKeyedArchiver.archiveRootObject(self.rooms, toFile: String.archivePath()) //Save the entire array to NSKeyedArchiver
+        
     }
     
 }

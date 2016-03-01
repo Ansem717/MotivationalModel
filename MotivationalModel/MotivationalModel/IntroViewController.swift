@@ -50,7 +50,7 @@ class IntroViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let _ = segue.destinationViewController as? MenuViewController else {
             NavigationStack.shared.addRoomToNavigationStack(kHome)
-            NavigationStack.shared.contents()
+            NavigationStack.shared.printContents()
             return
         }
     }
