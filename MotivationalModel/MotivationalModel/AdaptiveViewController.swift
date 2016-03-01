@@ -13,7 +13,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     //MARK: UI ELEMENTS
     @IBOutlet weak var userInputArea: UITextView!
     @IBOutlet weak var subtitleLabel: UILabel!
-    var descriptionLabel: UITextView!
+    @IBOutlet weak var descriptionLabel: UITextView!
     
     @IBOutlet var buttonsUIArray: [UIButton]!
     
@@ -21,21 +21,23 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var leadingButtonConstraints: [NSLayoutConstraint]!
     
+    @IBOutlet weak var leadingUserInputConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingUserInputConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingDescriptionConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingDescriptionConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var backMenuButton: UIBarButtonItem!
     
     //MARK: Reference Variables
     var currRoom: Room?
     var animationDuration: Double?
     
-    //MARK: Visual Triggered Functions
+    //MARK: Inheritted Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        //Create scroll-able text field
-        let viewWidth = view.bounds.width - 40
-        let viewHeight = view.bounds.height - 400
-        descriptionLabel = UITextView(frame: CGRect(x: 20, y: 260, width: viewWidth, height: viewHeight))
+        //Edit some Styles
         descriptionLabel.backgroundColor = UIColor(white: 0.8, alpha: 0.9)
         descriptionLabel.editable = false
         descriptionLabel.font = UIFont(name: "Helvetica", size: 17.0)
@@ -61,9 +63,10 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.userInputArea.setContentOffset(CGPointZero, animated: false)
+        self.descriptionLabel.setContentOffset(CGPointZero, animated: false)
     }
     
-    //MARK: Setup (
+    //MARK: Large Setup Function
     func setup(roomName: String = kValueProp) {
         
         print("AdaptVC Setup - parameter roomName: \(roomName)");print("");
@@ -134,7 +137,13 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
                     }
                     
                     self.leadingButtonConstraints[index].constant = xPos[index]
+                    self.leadingDescriptionConstraint.constant = self.view.bounds.width * 2.0
+                    self.leadingUserInputConstraint.constant = self.view.bounds.width * 2.0
+                    self.trailingDescriptionConstraint.constant = -self.view.bounds.width * 2.0
+                    self.trailingUserInputConstraint.constant = -self.view.bounds.width * 2.0
                     self.buttonsUIArray[index].layoutIfNeeded()
+                    self.descriptionLabel.layoutIfNeeded()
+                    self.userInputArea.layoutIfNeeded()
                 }
                 
                 self.animateAPPEAR(yPos)
@@ -185,6 +194,8 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+    
+    
     //MARK: Animation Functions
     func animateLEAVE(completion: (finished: Bool) -> ()) {
     
@@ -194,6 +205,21 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         let lengthOfTimeToRise = (animationDuration) / Double(numOfButtons) / 4
         let lengthOfTimeToFall = lengthOfTimeToRise * 3
         
+        
+        leadingUserInputConstraint.constant -= view.bounds.width
+        trailingUserInputConstraint.constant += view.bounds.width
+        
+        UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
+            self.userInputArea.layoutIfNeeded()
+        }, completion: nil)
+        
+        leadingDescriptionConstraint.constant -= view.bounds.width
+        trailingDescriptionConstraint.constant += view.bounds.width
+        
+        UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.1, options: .CurveLinear, animations: { () -> Void in
+            self.descriptionLabel.layoutIfNeeded()
+        }, completion: nil)
+        
         for var ii = 0; ii < numOfButtons; ii++ {
             
             let index = ii
@@ -201,21 +227,23 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
             
             self.bottomButtonConstraints[index].constant += 10
             
+            
             UIView.animateWithDuration(lengthOfTimeToRise, delay: adaptDelay, options: .CurveLinear, animations: { () -> Void in
                 self.buttonsUIArray[index].layoutIfNeeded()
-                }, completion: { (finished) -> Void in
+            }, completion: { (finished) -> Void in
+                
+                if finished {
+                    self.bottomButtonConstraints[index].constant -= 200
                     
-                    if finished {
-                        self.bottomButtonConstraints[index].constant -= 200
+                    UIView.animateWithDuration(lengthOfTimeToFall, animations: { () -> Void in
+                        self.buttonsUIArray[index].layoutIfNeeded()
+                    }, completion: { (finished) -> Void in
                         
-                        UIView.animateWithDuration(lengthOfTimeToFall, animations: { () -> Void in
-                            self.buttonsUIArray[index].layoutIfNeeded()
-                            }, completion: { (finished) -> Void in
-                                if index == numOfButtons-1 {
-                                    completion(finished: finished)
-                                }
-                        })
-                    }
+                        if index == numOfButtons-1 {
+                            completion(finished: finished)
+                        }
+                    })
+                }
             })
         }
     }
@@ -224,8 +252,26 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         
         guard let currentRoomExists = self.currRoom else { return }
         let numOfButtons = currentRoomExists.buttons.count
-        let animationDuration = Double(numOfButtons)*0.5
+        let animationDuration = Double(numOfButtons)*0.25
         let lengthOfTimeToRise = (animationDuration) / Double(currentRoomExists.buttons.count)
+        
+        leadingUserInputConstraint.constant = 20.0
+        trailingUserInputConstraint.constant = 20.0
+        
+        UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
+            self.userInputArea.layoutIfNeeded()
+        }, completion: { (finished) -> Void in
+            self.userInputArea.scrollRangeToVisible(NSRange(location: 0, length: 0))
+        })
+        
+        leadingDescriptionConstraint.constant = 20.0
+        trailingDescriptionConstraint.constant = 20.0
+        
+        UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.5, options: .CurveLinear, animations: { () -> Void in
+            self.descriptionLabel.layoutIfNeeded()
+        }, completion: { (finished) -> Void in
+            self.descriptionLabel.scrollRangeToVisible(NSRange(location: 0, length: 0))
+        })
         
         for var ii = 0; ii < self.currRoom?.buttons.count; ii++ {
             

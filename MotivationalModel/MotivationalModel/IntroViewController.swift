@@ -17,8 +17,6 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var nobInputField: UITextField!
     @IBOutlet weak var viewPropButtonOutlet: UIButton!
     
-    //UIViewController inheritance functions
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -35,17 +33,12 @@ class IntroViewController: UIViewController {
     
     //Setup UI
     func setupIntroView() {
-        self.navigationItem.title = "Enterprise Business Model"
+        self.navigationItem.title = "HOME TO HOME???"  // "Enterprise Business Model"
         viewPropButtonOutlet.layer.cornerRadius = 10
-        
     }
     
     
-    // Button Functions
-    @IBAction func menuButton(sender: UIBarButtonItem) {
-//        self.performSegueWithIdentifier("MenuViewController", sender: nil)
-    }
-    
+    // Button Functions & Navigation
     @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
         //
     }
@@ -55,8 +48,11 @@ class IntroViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        NavigationStack.shared.addRoomToNavigationStack(kHome)
-        NavigationStack.shared.contents()
+        guard let _ = segue.destinationViewController as? MenuViewController else {
+            NavigationStack.shared.addRoomToNavigationStack(kHome)
+            NavigationStack.shared.contents()
+            return
+        }
     }
     
 }

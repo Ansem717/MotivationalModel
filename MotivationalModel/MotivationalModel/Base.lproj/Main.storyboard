@@ -303,6 +303,16 @@ Most businesses today have more than one model, and a future version of this app
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-pc-97j">
+                                <rect key="frame" x="20" y="260" width="560" height="230"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="jpU-eb-L0U"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -311,12 +321,15 @@ Most businesses today have more than one model, and a future version of this app
                             <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="80" identifier="2" id="2nk-0h-sHe"/>
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="JgF-dQ-fCZ" secondAttribute="bottom" constant="95" identifier="3" id="2pz-MC-6Nw"/>
                             <constraint firstItem="n2G-6f-Uji" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" identifier="1" id="9n5-G0-yte"/>
+                            <constraint firstItem="uuD-pc-97j" firstAttribute="top" secondItem="Ga9-qX-2aM" secondAttribute="bottom" constant="20" id="Dbz-5Q-vLr"/>
                             <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="240" identifier="5" id="GUR-Jg-iM6"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="8" id="ODW-kO-ako"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="Sfc-5D-bv1"/>
                             <constraint firstAttribute="trailing" secondItem="8Td-fn-wF6" secondAttribute="trailing" constant="20" id="a9T-xR-Cqz"/>
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="8KL-Rc-Czn" secondAttribute="bottom" constant="40" identifier="2" id="aUO-94-jln"/>
+                            <constraint firstItem="uuD-pc-97j" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="anC-5I-bZL"/>
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="e0O-C7-gnZ" secondAttribute="bottom" constant="40" identifier="4" id="cUV-xW-lPe"/>
+                            <constraint firstAttribute="trailing" secondItem="uuD-pc-97j" secondAttribute="trailing" constant="20" id="d9A-B4-lH7"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="centerX" secondItem="SkI-Dj-TTh" secondAttribute="centerX" id="eFu-bX-YlU"/>
                             <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="180" identifier="4" id="ecy-mx-8ic"/>
                             <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="120" identifier="3" id="hry-aa-gWd"/>
@@ -340,6 +353,12 @@ Most businesses today have more than one model, and a future version of this app
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backMenuButton" destination="c6n-gN-ZkZ" id="0bm-CS-y1h"/>
+                        <outlet property="descriptionLabel" destination="uuD-pc-97j" id="d8f-PB-D3l"/>
+                        <outlet property="leadingDescriptionConstraint" destination="anC-5I-bZL" id="AJF-nR-6Z8"/>
+                        <outlet property="leadingUserInputConstraint" destination="mqf-1A-8SD" id="7jp-qd-tnK"/>
+                        <outlet property="subtitleLabel" destination="8Td-fn-wF6" id="Ssx-sa-RHh"/>
+                        <outlet property="trailingDescriptionConstraint" destination="d9A-B4-lH7" id="9Fe-fA-DHU"/>
+                        <outlet property="trailingUserInputConstraint" destination="nNX-MR-brR" id="8sI-1d-psS"/>
                         <outlet property="userInputArea" destination="Ga9-qX-2aM" id="V1l-u2-KFJ"/>
                         <outletCollection property="buttonsUIArray" destination="n2G-6f-Uji" collectionClass="NSMutableArray" id="1lP-6U-kQT"/>
                         <outletCollection property="buttonsUIArray" destination="8KL-Rc-Czn" collectionClass="NSMutableArray" id="tCZ-pS-Vrn"/>

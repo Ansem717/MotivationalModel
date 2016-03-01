@@ -73,7 +73,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kResourceAsset,
             subtitle: "",
             abbreviation: "R/A",
-            descript: "Part of a business model, a resource can represent anything that the business must employ, possess, or control in order to deliver on a required competency.  Examples of a resource may be: a person or group of people able to fulfill a particular role or mission; a building, office, suite, or store in which some activities are performed; a physical asset used in the process of fulfilling a capability; materials or inputs to manufacturing; inventory of goods to be sold or distributed; inventory of services ready to be provisioned or provided; cash or equities; Intellectual Property",
+            descript: "Part of a business model, a resource can represent anything that the business must employ, possess, or control in order to deliver on a required competency.  Examples of a resource may be: \n\n \(Icons.shared.bullet)  a person or group of people able to fulfill a particular role or mission; \n \(Icons.shared.bullet)  a building, office, suite, or store in which some activities are performed;\n \(Icons.shared.bullet)  a physical asset used in the process of fulfilling a capability;\n \(Icons.shared.bullet)  materials or inputs to manufacturing;\n \(Icons.shared.bullet)  inventory of goods to be sold or distributed;\n \(Icons.shared.bullet)  inventory of services ready to be provisioned or provided; cash or equities;\n \(Icons.shared.bullet)  Intellectual Property",
             buttons: [kRequiredComp, kCostAndRev]
         ),
         Room(

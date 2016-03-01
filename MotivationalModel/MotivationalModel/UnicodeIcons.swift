@@ -16,6 +16,7 @@ class Icons {
     let exclamation = "\u{2757}"
     let nextArrow = "\u{276F}"
     let prevArrow = "\u{276E}"
+    let bullet = "\u{204D}"
     
     static let shared = Icons()
     
@@ -30,6 +31,13 @@ class Icons {
     
     func prefixRedWarning(text: String) -> NSMutableAttributedString {
         let applyPrefix = "\(self.exclamation) \(text)"
+        let mutableString = NSMutableAttributedString(string: applyPrefix)
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, 1))
+        return mutableString
+    }
+    
+    func prefixRedX(text: String) -> NSMutableAttributedString {
+        let applyPrefix = "\(self.redx) \(text)"
         let mutableString = NSMutableAttributedString(string: applyPrefix)
         mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, 1))
         return mutableString
