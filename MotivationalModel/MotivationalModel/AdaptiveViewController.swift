@@ -69,6 +69,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
         print("AdaptVC Setup - parameter roomName: \(roomName)");print("");
         let nextRoom = RoomsCache.shared.currentRoom(roomName)
         NavigationStack.shared.addRoomToNavigationStack(roomName)
+        NavigationStack.shared.contents()
         
         // What happens when a user already set a room value, then went to Home in the menu, then pressed the Value Prop button? I'll just have to find out.
         // Seems it kills the <#currRoom#> variable

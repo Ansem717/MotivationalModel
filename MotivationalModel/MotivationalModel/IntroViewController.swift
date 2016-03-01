@@ -55,10 +55,8 @@ class IntroViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if NavigationStack.shared.isEmpty() {
-            print("Navigation Stack is Empty!");print("");
-            NavigationStack.shared.addRoomToNavigationStack(kHome)
-        }
+        NavigationStack.shared.addRoomToNavigationStack(kHome)
+        NavigationStack.shared.contents()
     }
     
 }

@@ -19,6 +19,21 @@ class NavigationStack {
         return head.key == nil
     }
     
+    func contents() {
+        var current: NavigationStackRoom? = head
+        var index: Int = 0
+        
+        print("--START--")
+        while current != nil {
+            print("\(current!.key) at position \(index)")
+            index++
+            current = current!.next
+        }
+        print("--END--\n")
+    }
+    
+    
+    
     
     func addRoomToNavigationStack(key: String) {
         if self.isEmpty() {
