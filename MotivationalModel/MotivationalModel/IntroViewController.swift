@@ -43,11 +43,11 @@ class IntroViewController: UIViewController {
     
     // Button Functions
     @IBAction func menuButton(sender: UIBarButtonItem) {
-        self.performSegueWithIdentifier("MenuViewController", sender: nil)
+//        self.performSegueWithIdentifier("MenuViewController", sender: nil)
     }
     
     @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
-        
+        //
     }
     
     @IBAction func viewPropButton(sender: UIButton) {
@@ -55,7 +55,10 @@ class IntroViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        self.navigationItem.title = "EBM"
+        if NavigationStack.shared.isEmpty() {
+            print("Navigation Stack is Empty!");print("");
+            NavigationStack.shared.addRoomToNavigationStack(kHome)
+        }
     }
     
 }

@@ -156,16 +156,16 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
                                 <rect key="frame" x="32" y="45" width="535" height="320"/>
-                                <mutableString key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
+                                <string key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
  
-Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </mutableString>
+Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </string>
                                 <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="18"/>
                                 <color key="textColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Jj-BxP">
                                 <rect key="frame" x="20" y="519" width="560" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
                                 <state key="normal" title="Go to Value Proposition">
@@ -198,7 +198,11 @@ Most businesses today have more than one model, and a future version of this app
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y1s-y3-EL8">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="pfa-o2-1hV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1351421" title="Menu" id="ZGs-oY-q1i">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="jfz-qY-qJQ" kind="presentation" identifier="HomeToMenu" id="BTX-Fs-qy7"/>
                             </connections>
@@ -229,98 +233,105 @@ Most businesses today have more than one model, and a future version of this app
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-qX-2aM">
-                                <rect key="frame" x="20" y="80" width="560" height="145"/>
+                                <rect key="frame" x="20" y="95" width="560" height="145"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="GUV-c3-VGT"/>
+                                </constraints>
                                 <color key="textColor" red="0.039215686274509803" green="0.14509803921568629" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hof-VT-HRU">
-                                <rect key="frame" x="20" y="246" width="560" height="206"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZI-Xe-KYl">
-                                        <rect key="frame" x="13" y="16" width="534" height="162.5"/>
-                                        <string key="text">The central notion of a business model, the value proposition describes how the enterprise, through its activities, adds value to the consumer or marketplace. The Value proposition binds together the notions of customer demands, required competencies, revenue models and business partnerships.  It is a statement from the viewpoint of the target customers that informs everyone "why" the business' products and services are valuable.
-</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.039215686274509803" green="0.14509803921568626" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="0.0" height="0.0"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="EZI-Xe-KYl" firstAttribute="leading" secondItem="Hof-VT-HRU" secondAttribute="leadingMargin" constant="5" id="36e-oo-Jmm"/>
-                                    <constraint firstItem="EZI-Xe-KYl" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="topMargin" constant="8" id="do8-FQ-AI4"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="EZI-Xe-KYl" secondAttribute="trailing" constant="5" id="imD-iv-LaB"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2G-6f-Uji">
-                                <rect key="frame" x="20" y="500" width="74" height="30"/>
-                                <state key="normal" title="ButtonOne"/>
-                                <connections>
-                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="dCz-cb-mtF"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KL-Rc-Czn">
-                                <rect key="frame" x="102" y="500" width="55" height="30"/>
+                                <rect key="frame" x="80" y="500" width="97" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1cN-8R-xKe"/>
+                                    <constraint firstAttribute="width" constant="97" id="mWZ-fX-k1g"/>
+                                </constraints>
                                 <state key="normal" title="Button2"/>
                                 <connections>
                                     <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="Thp-mb-acX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-dQ-fCZ">
-                                <rect key="frame" x="165" y="500" width="55" height="30"/>
-                                <state key="normal" title="Button3"/>
-                                <connections>
-                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="IHL-VY-hcY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-C7-gnZ">
-                                <rect key="frame" x="228" y="500" width="56" height="30"/>
+                                <rect key="frame" x="200" y="500" width="97" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="U40-th-tj7"/>
+                                    <constraint firstAttribute="height" constant="60" id="c6d-NJ-YiD"/>
+                                </constraints>
                                 <state key="normal" title="Button4"/>
                                 <connections>
                                     <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="egf-Eg-A0e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NA-GC-Vgq">
-                                <rect key="frame" x="292" y="500" width="59" height="30"/>
+                                <rect key="frame" x="260" y="445" width="97" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Mqs-BG-x09"/>
+                                    <constraint firstAttribute="height" constant="60" id="NlB-Zq-m8J"/>
+                                </constraints>
                                 <state key="normal" title="Button5 "/>
                                 <connections>
                                     <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="VJL-uR-bX0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2G-6f-Uji">
+                                <rect key="frame" x="20" y="445" width="97" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="NY3-mg-PzK"/>
+                                    <constraint firstAttribute="width" constant="97" id="wxh-wc-h4H"/>
+                                </constraints>
+                                <state key="normal" title="ButtonOne"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="dCz-cb-mtF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-dQ-fCZ">
+                                <rect key="frame" x="140" y="445" width="97" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="YSH-q1-juG"/>
+                                    <constraint firstAttribute="width" constant="97" id="lBP-f9-wvX"/>
+                                </constraints>
+                                <state key="normal" title="Button3"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="IHL-VY-hcY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Td-fn-wF6">
+                                <rect key="frame" x="20" y="72" width="560" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Ga9-qX-2aM" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="16" id="0xR-3l-Bfm"/>
-                            <constraint firstAttribute="trailing" secondItem="Hof-VT-HRU" secondAttribute="trailing" constant="20" id="4WT-VW-vjl"/>
-                            <constraint firstItem="Hof-VT-HRU" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="7aC-YO-MvU"/>
-                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="e0O-C7-gnZ" secondAttribute="baseline" id="Adt-Ae-AP0"/>
-                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="JgF-dQ-fCZ" secondAttribute="baseline" id="IMZ-8u-lvy"/>
-                            <constraint firstItem="Hof-VT-HRU" firstAttribute="top" secondItem="Ga9-qX-2aM" secondAttribute="bottom" constant="21" id="KHM-AF-c0z"/>
-                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="Keg-sQ-3aH"/>
-                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="U6v-DS-4Ak"/>
-                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="n2G-6f-Uji" secondAttribute="trailing" constant="8" symbolic="YES" id="WMW-RT-pD9"/>
-                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="e0O-C7-gnZ" secondAttribute="trailing" constant="8" id="WsR-UH-DIk"/>
-                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="8KL-Rc-Czn" secondAttribute="trailing" constant="8" id="XKW-4g-9D1"/>
-                            <constraint firstItem="n2G-6f-Uji" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="Y1q-JK-jGZ"/>
-                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="JgF-dQ-fCZ" secondAttribute="trailing" constant="8" id="a4v-kW-vT4"/>
-                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="n2G-6f-Uji" secondAttribute="bottom" constant="70" id="aNr-2e-08u"/>
-                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="n2G-6f-Uji" secondAttribute="trailing" constant="8" id="bqB-gf-wzE"/>
-                            <constraint firstItem="n2G-6f-Uji" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="d4v-PU-GSy"/>
-                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="fsK-fU-vzk"/>
-                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="0NA-GC-Vgq" secondAttribute="baseline" id="ftr-oE-PLK"/>
-                            <constraint firstItem="Hof-VT-HRU" firstAttribute="top" secondItem="SkI-Dj-TTh" secondAttribute="top" constant="246" id="l6c-I3-mLf"/>
+                            <constraint firstItem="Ga9-qX-2aM" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="31" id="0xR-3l-Bfm"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="n2G-6f-Uji" secondAttribute="bottom" constant="95" identifier="1" id="1zi-WK-BQE"/>
+                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="80" identifier="2" id="2nk-0h-sHe"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="JgF-dQ-fCZ" secondAttribute="bottom" constant="95" identifier="3" id="2pz-MC-6Nw"/>
+                            <constraint firstItem="n2G-6f-Uji" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" identifier="1" id="9n5-G0-yte"/>
+                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="240" identifier="5" id="GUR-Jg-iM6"/>
+                            <constraint firstItem="8Td-fn-wF6" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="8" id="ODW-kO-ako"/>
+                            <constraint firstItem="8Td-fn-wF6" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="Sfc-5D-bv1"/>
+                            <constraint firstAttribute="trailing" secondItem="8Td-fn-wF6" secondAttribute="trailing" constant="20" id="a9T-xR-Cqz"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="8KL-Rc-Czn" secondAttribute="bottom" constant="40" identifier="2" id="aUO-94-jln"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="e0O-C7-gnZ" secondAttribute="bottom" constant="40" identifier="4" id="cUV-xW-lPe"/>
+                            <constraint firstItem="8Td-fn-wF6" firstAttribute="centerX" secondItem="SkI-Dj-TTh" secondAttribute="centerX" id="eFu-bX-YlU"/>
+                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="180" identifier="4" id="ecy-mx-8ic"/>
+                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="120" identifier="3" id="hry-aa-gWd"/>
                             <constraint firstItem="Ga9-qX-2aM" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="mqf-1A-8SD"/>
                             <constraint firstAttribute="trailing" secondItem="Ga9-qX-2aM" secondAttribute="trailing" constant="20" id="nNX-MR-brR"/>
-                            <constraint firstItem="n2G-6f-Uji" firstAttribute="baseline" secondItem="8KL-Rc-Czn" secondAttribute="baseline" id="sIY-TF-6ia"/>
-                            <constraint firstItem="8KL-Rc-Czn" firstAttribute="top" secondItem="Hof-VT-HRU" secondAttribute="bottom" constant="48" id="xyL-UB-YiS"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="0NA-GC-Vgq" secondAttribute="bottom" constant="95" identifier="5" id="o0D-2d-cb3"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Jf5-cf-z3I">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="c6n-gN-ZkZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="jl6-te-c3k">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="jfz-qY-qJQ" kind="presentation" id="qWp-Ru-Fal"/>
                             </connections>
@@ -328,13 +339,23 @@ Most businesses today have more than one model, and a future version of this app
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="EZI-Xe-KYl" id="o6F-6a-bbJ"/>
-                        <outlet property="fifthButton" destination="0NA-GC-Vgq" id="oDO-Ii-fb4"/>
-                        <outlet property="firstButton" destination="n2G-6f-Uji" id="XZr-w6-3Sb"/>
-                        <outlet property="fourthButton" destination="e0O-C7-gnZ" id="qix-mR-yTq"/>
-                        <outlet property="secondButton" destination="8KL-Rc-Czn" id="CzH-gt-E14"/>
-                        <outlet property="thirdButton" destination="JgF-dQ-fCZ" id="uaK-RN-33w"/>
+                        <outlet property="backMenuButton" destination="c6n-gN-ZkZ" id="0bm-CS-y1h"/>
                         <outlet property="userInputArea" destination="Ga9-qX-2aM" id="V1l-u2-KFJ"/>
+                        <outletCollection property="buttonsUIArray" destination="n2G-6f-Uji" collectionClass="NSMutableArray" id="1lP-6U-kQT"/>
+                        <outletCollection property="buttonsUIArray" destination="8KL-Rc-Czn" collectionClass="NSMutableArray" id="tCZ-pS-Vrn"/>
+                        <outletCollection property="buttonsUIArray" destination="JgF-dQ-fCZ" collectionClass="NSMutableArray" id="W0n-fm-Sb2"/>
+                        <outletCollection property="buttonsUIArray" destination="e0O-C7-gnZ" collectionClass="NSMutableArray" id="W3J-v4-fNX"/>
+                        <outletCollection property="buttonsUIArray" destination="0NA-GC-Vgq" collectionClass="NSMutableArray" id="0OP-X1-BLD"/>
+                        <outletCollection property="leadingButtonConstraints" destination="9n5-G0-yte" collectionClass="NSMutableArray" id="BLy-ar-1fF"/>
+                        <outletCollection property="leadingButtonConstraints" destination="2nk-0h-sHe" collectionClass="NSMutableArray" id="ZTa-Jl-SVw"/>
+                        <outletCollection property="leadingButtonConstraints" destination="hry-aa-gWd" collectionClass="NSMutableArray" id="ieY-Mk-ZmQ"/>
+                        <outletCollection property="leadingButtonConstraints" destination="ecy-mx-8ic" collectionClass="NSMutableArray" id="Qa9-9o-wCE"/>
+                        <outletCollection property="leadingButtonConstraints" destination="GUR-Jg-iM6" collectionClass="NSMutableArray" id="XOU-RR-0JO"/>
+                        <outletCollection property="bottomButtonConstraints" destination="1zi-WK-BQE" collectionClass="NSMutableArray" id="UeR-Kk-zfN"/>
+                        <outletCollection property="bottomButtonConstraints" destination="aUO-94-jln" collectionClass="NSMutableArray" id="SGI-aE-JM3"/>
+                        <outletCollection property="bottomButtonConstraints" destination="2pz-MC-6Nw" collectionClass="NSMutableArray" id="sPB-tW-bDC"/>
+                        <outletCollection property="bottomButtonConstraints" destination="cUV-xW-lPe" collectionClass="NSMutableArray" id="BuC-wK-HFf"/>
+                        <outletCollection property="bottomButtonConstraints" destination="o0D-2d-cb3" collectionClass="NSMutableArray" id="BvJ-6J-loc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xc-KM-6Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,6 +382,6 @@ Most businesses today have more than one model, and a future version of this app
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BTX-Fs-qy7"/>
+        <segue reference="qWp-Ru-Fal"/>
     </inferredMetricsTieBreakers>
 </document>

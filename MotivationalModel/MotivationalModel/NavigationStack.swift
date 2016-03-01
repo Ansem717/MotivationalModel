@@ -30,9 +30,7 @@ class NavigationStack {
         
         while current != nil {
             if current?.next == nil {
-                
                 let newRoom = NavigationStackRoom()
-                
                 newRoom.prev = current
                 newRoom.key = key
                 current!.next = newRoom
@@ -44,22 +42,18 @@ class NavigationStack {
     }
     
     func removeLastFromNavigationStack() {
-        
         if self.isEmpty() {
-            return //Can't remove a stack that is empty!
+            return
         }
         
         var current: NavigationStackRoom? = head
         
         while current != nil {
             if current?.next == nil {
-                
                 let parent = current?.prev
-                
                 current!.key = nil
                 current!.prev = nil
                 parent!.next = nil
-                
                 break
             } else {
                 current = current?.next
@@ -68,26 +62,22 @@ class NavigationStack {
     }
     
     func findCurrentRoomInNavStack() -> String {
-        
         if self.isEmpty() {
-            return kHome //If the NavStack has nothing in it, then we're on the home page.
+            return kHome
         }
         
         var current: NavigationStackRoom? = head
         
         while current != nil{
             if current?.next == nil {
-                //Here is last item. Curernt Room should always be last item. All we need to do now is return the key
-                
                 guard let currentKey = current?.key else { fatalError() }
-                
                 return currentKey
             } else {
                 current = current?.next
             }
         }
-        print("");print("");print("ERROR CODE 73 - Nav Stack??");print("");print("");
-        return kHome //If the while fails for some reason (it should never fail), then we'll just say our current item is "Home"
+        print("");print("ERROR CODE 73 - Nav Stack - Current is nil");print("");print("");
+        return kHome
     }
     
 }

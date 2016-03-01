@@ -15,6 +15,7 @@ class Icons {
     let redx = "\u{2718}"
     let exclamation = "\u{2757}"
     let nextArrow = "\u{276F}"
+    let prevArrow = "\u{276E}"
     
     static let shared = Icons()
     
