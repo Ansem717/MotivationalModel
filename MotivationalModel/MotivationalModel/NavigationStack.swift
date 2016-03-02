@@ -21,19 +21,14 @@ class NavigationStack {
     
     func printContents() {
         var current: NavigationStackRoom? = head
-        var index: Int = 0
         
         print("--START--")
         while current != nil {
-            print("\(current!.key) at position \(index)")
-            index++
+            print("\(current!.key!)")
             current = current!.next
         }
         print("--END--\n")
     }
-    
-    
-    
     
     func addRoomToNavigationStack(key: String) {
         if self.isEmpty() {
@@ -93,8 +88,45 @@ class NavigationStack {
                 current = current?.next
             }
         }
-        print("");print("ERROR CODE 73 - Nav Stack - Current is nil");print("");print("");
+        print("");print("ERROR - Nav Stack - Current is nil - \(__FUNCTION__)");print("");print("");
         return kHome
+    }
+    
+    func findPreviousRoomInNavStack() -> String {
+        if self.isEmpty() {
+            return "EMPTY"
+        }
+        
+        var current: NavigationStackRoom? = head
+        
+        while current != nil{
+            if current?.next == nil {
+                guard let prevKey = current?.prev?.key else { fatalError() }
+                return prevKey
+            } else {
+                current = current?.next
+            }
+        }
+        print("");print("ERROR - Nav Stack - Current is nil - \(__FUNCTION__)");print("");print("");
+        return kHome
+        
+    }
+    
+    func count() -> Int {
+        if self.isEmpty() {
+            return 0
+        }
+        
+        var current: NavigationStackRoom? = head
+        var index: Int = 0
+        
+        while current != nil {
+            index++
+            current = current!.next
+        }
+        
+        return index
+        
     }
     
 }

@@ -173,7 +173,7 @@ Most businesses today have more than one model, and a future version of this app
                                 </state>
                                 <connections>
                                     <action selector="viewPropButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLC-j2-bNN"/>
-                                    <segue destination="XCk-Je-x53" kind="show" id="01V-uM-kpP"/>
+                                    <segue destination="XCk-Je-x53" kind="show" identifier="HomeToValuePropSegue" id="01V-uM-kpP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -200,6 +200,9 @@ Most businesses today have more than one model, and a future version of this app
                     <navigationItem key="navigationItem" id="Y1s-y3-EL8">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="pfa-o2-1hV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="BYZ-38-t0r" id="ch9-tW-1hu"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1351421" title="Menu" id="ZGs-oY-q1i">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,10 +213,12 @@ Most businesses today have more than one model, and a future version of this app
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="backButton" destination="pfa-o2-1hV" id="Xqh-ne-xCM"/>
                         <outlet property="introBody" destination="CL9-eU-Caf" id="a9V-mb-vd7"/>
                         <outlet property="nobInputField" destination="44F-OF-P3g" id="NQB-ln-hqB"/>
                         <outlet property="nobLabel" destination="SIT-Yf-5QU" id="XSO-ev-aI0"/>
                         <outlet property="viewPropButtonOutlet" destination="ZLC-Jj-BxP" id="dGq-HO-kBL"/>
+                        <segue destination="XCk-Je-x53" kind="show" identifier="HomeToAdaptSegue" id="Az2-Ci-68t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -342,6 +347,9 @@ Most businesses today have more than one model, and a future version of this app
                     <navigationItem key="navigationItem" id="Jf5-cf-z3I">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="c6n-gN-ZkZ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="XCk-Je-x53" id="dDk-ue-3gz"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="jl6-te-c3k">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -375,6 +383,7 @@ Most businesses today have more than one model, and a future version of this app
                         <outletCollection property="bottomButtonConstraints" destination="2pz-MC-6Nw" collectionClass="NSMutableArray" id="sPB-tW-bDC"/>
                         <outletCollection property="bottomButtonConstraints" destination="cUV-xW-lPe" collectionClass="NSMutableArray" id="BuC-wK-HFf"/>
                         <outletCollection property="bottomButtonConstraints" destination="o0D-2d-cb3" collectionClass="NSMutableArray" id="BvJ-6J-loc"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="AdaptToHomeSegue" id="WjQ-BQ-LbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xc-KM-6Ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -402,5 +411,7 @@ Most businesses today have more than one model, and a future version of this app
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qWp-Ru-Fal"/>
+        <segue reference="01V-uM-kpP"/>
+        <segue reference="WjQ-BQ-LbO"/>
     </inferredMetricsTieBreakers>
 </document>

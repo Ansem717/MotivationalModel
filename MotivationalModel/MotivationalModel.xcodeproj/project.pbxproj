@@ -12,6 +12,7 @@
 		E9246BFD1C77879E0017002B /* UnicodeIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9246BFC1C77879E0017002B /* UnicodeIcons.swift */; };
 		E92B76651C7E09F3003B44DD /* AdaptiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */; };
 		E95B8F111C86506700BDE4A9 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95B8F101C86506700BDE4A9 /* Additions.swift */; };
+		E95B8F131C86865F00BDE4A9 /* ReversePush.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95B8F121C86865F00BDE4A9 /* ReversePush.swift */; };
 		E9BEBC791C80ED21006F06A5 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC781C80ED21006F06A5 /* Room.swift */; };
 		E9BEBC7B1C80F049006F06A5 /* NavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC7A1C80F049006F06A5 /* NavigationStack.swift */; };
 		E9BEBC7D1C80F0C3006F06A5 /* NavStackROOM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */; };
@@ -30,6 +31,7 @@
 		E9246BFC1C77879E0017002B /* UnicodeIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeIcons.swift; sourceTree = "<group>"; };
 		E92B76641C7E09F3003B44DD /* AdaptiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveViewController.swift; sourceTree = "<group>"; };
 		E95B8F101C86506700BDE4A9 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
+		E95B8F121C86865F00BDE4A9 /* ReversePush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReversePush.swift; sourceTree = "<group>"; };
 		E9BEBC781C80ED21006F06A5 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E9BEBC7A1C80F049006F06A5 /* NavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
 		E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavStackROOM.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				E9BEBC7E1C810C20006F06A5 /* RoomsCache.swift */,
 				E9BEBC7A1C80F049006F06A5 /* NavigationStack.swift */,
 				E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */,
+				E95B8F121C86865F00BDE4A9 /* ReversePush.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				E9BEBC7F1C810C20006F06A5 /* RoomsCache.swift in Sources */,
 				E9BEBC791C80ED21006F06A5 /* Room.swift in Sources */,
 				E9CBEC591C703F960070AD2C /* IntroViewController.swift in Sources */,
+				E95B8F131C86865F00BDE4A9 /* ReversePush.swift in Sources */,
 				E9CBEC571C703F960070AD2C /* AppDelegate.swift in Sources */,
 				E95B8F111C86506700BDE4A9 /* Additions.swift in Sources */,
 				E92B76651C7E09F3003B44DD /* AdaptiveViewController.swift in Sources */,

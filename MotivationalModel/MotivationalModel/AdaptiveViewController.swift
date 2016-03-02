@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
+class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewControllerTransitioningDelegate {
     
     //MARK: UI ELEMENTS
     @IBOutlet weak var userInputArea: UITextView!
@@ -31,6 +31,8 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     //MARK: Reference Variables
     var currRoom: Room?
     var animationDuration: Double?
+    var roomReferenceName: String = kValueProp
+    let reversePushTransition = ReversePush(duration: 1.0)
     
     //MARK: Inheritted Functions
     override func viewDidLoad() {
@@ -51,7 +53,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
             button.tintColor = UIColor(red: 0x88, green: 0xC3, blue: 0x87, alpha: 0.8)
         }
         
-        setup()
+        setup(roomReferenceName)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,20 +71,20 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
     }
     
     //MARK: Large Setup Function
-    func setup(roomName: String = kValueProp) {
+    func setup(roomName: String) {
+        
+        self.backMenuButton.enabled = false
         
         print("AdaptVC Setup - parameter roomName: \(roomName)");print("");
-        let nextRoom = RoomsCache.shared.currentRoom(roomName)
+        let nextRoom = RoomsCache.shared.findRoom(roomName)
         NavigationStack.shared.addRoomToNavigationStack(roomName)
         NavigationStack.shared.printContents()
         
-        // What happens when a user already set a room value, then went to Home in the menu, then pressed the Value Prop button? I'll just have to find out.
-        // Seems it kills the <#currRoom#> variable
-        
-        var prevRoomShorthand: String
+        let prevRoomName = NavigationStack.shared.findPreviousRoomInNavStack()
+        let prevRoomShorthand = RoomsCache.shared.findRoom(prevRoomName).abbreviation
         
         if let current = self.currRoom {
-            prevRoomShorthand = current.abbreviation
+            
             if let userText = self.userInputArea.text {
                 RoomsCache.shared.saveRoom(userText, roomName: current.title)
             }
@@ -152,8 +154,9 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
             }
             
         } else { //From Home Page to Value Proposition
-            prevRoomShorthand = "EBM"
+
             self.currRoom = nextRoom
+            
             //Content change while offscreen
             self.userInputArea.text = nextRoom.userText
             self.descriptionLabel.text = nextRoom.descript
@@ -181,6 +184,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
                 }
                 
                 self.buttonsUIArray[index].layoutIfNeeded()
+                self.backMenuButton.enabled = true
             }
         }
     }
@@ -281,14 +285,34 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
             
             UIView.animateWithDuration(lengthOfTimeToRise, delay: adaptDelay, options: .CurveLinear, animations: { () -> Void in
                 self.buttonsUIArray[index].layoutIfNeeded()
-                }, completion: nil)
+            }, completion: { (finished) -> Void in
+                if index == numOfButtons-1 {
+                    self.backMenuButton.enabled = true
+                }
+            })
         }
     }
     
-    //MARK: Button Function. Only one function, reused for all buttons.
+    //MARK: Button Functions.
     @IBAction func nextpageButtonPressed(sender: UIButton) {
         guard let buttonKey = sender.titleLabel!.text else { fatalError("Uhh?") }
         setup(buttonKey)
+    }
+    
+    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
+        //1) Remove last (current) from nav stack
+        NavigationStack.shared.removeLastFromNavigationStack()
+        NavigationStack.shared.printContents()
+        
+        //2) check if I'm going to kHome.
+        let roomKey = NavigationStack.shared.findCurrentRoomInNavStack()
+        if roomKey == kHome {
+            //REVERSE PUSH
+            performSegueWithIdentifier("AdaptToHomeSegue", sender: nil)
+        } else {
+            //REVERSE ANIMATE
+            setup(roomKey)
+        }
     }
     
     
@@ -298,8 +322,18 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
                 RoomsCache.shared.saveRoom(userText, roomName: current.title)
             }
         }
+        if segue.identifier == "AdaptToHomeSegue" {
+            if let ivc = segue.destinationViewController as? IntroViewController {
+                ivc.transitioningDelegate = self
+            }
+        }
+        
     }
     
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        return self.reversePushTransition
+    }
     
 }
 

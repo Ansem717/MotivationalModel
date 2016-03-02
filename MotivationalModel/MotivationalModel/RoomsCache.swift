@@ -113,14 +113,14 @@ class RoomsCache { //Singleton to form the rooms - permanently
         )
     ]
     
-    func currentRoom(roomName: String) -> Room {
+    func findRoom(roomName: String) -> Room {
         let currRoom_ArrayOfOne = rooms.filter { $0.title == roomName }
         guard let currRoom = currRoom_ArrayOfOne.first else { fatalError("currRoom did not match: \"\(roomName)\"") }
         return currRoom
     }
     
     func saveRoom(textFromUser: String, roomName: String) {
-        let currRoom = currentRoom(roomName)
+        let currRoom = findRoom(roomName)
         currRoom.userText = textFromUser //Temporary Save by updating array
         
         NSKeyedArchiver.archiveRootObject(self.rooms, toFile: String.archivePath()) //Save the entire array to NSKeyedArchiver
