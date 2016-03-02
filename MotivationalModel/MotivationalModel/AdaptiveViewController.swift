@@ -139,10 +139,10 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate {
                     }
                     
                     self.leadingButtonConstraints[index].constant = xPos[index]
-                    self.leadingDescriptionConstraint.constant = self.view.bounds.width * 2.0
-                    self.leadingUserInputConstraint.constant = self.view.bounds.width * 2.0
                     self.trailingDescriptionConstraint.constant = -self.view.bounds.width * 2.0
+                    self.leadingDescriptionConstraint.constant = self.view.bounds.width * 2.0
                     self.trailingUserInputConstraint.constant = -self.view.bounds.width * 2.0
+                    self.leadingUserInputConstraint.constant = self.view.bounds.width * 2.0
                     self.buttonsUIArray[index].layoutIfNeeded()
                     self.descriptionLabel.layoutIfNeeded()
                     self.userInputArea.layoutIfNeeded()

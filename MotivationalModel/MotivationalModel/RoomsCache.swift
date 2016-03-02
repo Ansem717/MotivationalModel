@@ -38,7 +38,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kHome,
             subtitle: "",
             abbreviation: "EBM",
-            descript: "",
+            descript: "The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success. \n \nMost businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern.",
             buttons: [kValueProp]
         ),
         Room(

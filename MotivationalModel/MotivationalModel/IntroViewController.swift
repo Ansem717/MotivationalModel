@@ -33,8 +33,13 @@ class IntroViewController: UIViewController {
     
     //Setup UI
     func setupIntroView() {
-        self.navigationItem.title = "HOME TO HOME???"  // "Enterprise Business Model"
+        let homeRoom = RoomsCache.shared.currentRoom(kHome)
+        self.navigationItem.title = homeRoom.title
+        self.nobInputField.text = homeRoom.userText
+        introBody.layer.cornerRadius = 10
         viewPropButtonOutlet.layer.cornerRadius = 10
+        NavigationStack.shared.addRoomToNavigationStack(kHome)
+        NavigationStack.shared.printContents()
     }
     
     
@@ -48,10 +53,8 @@ class IntroViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let _ = segue.destinationViewController as? MenuViewController else {
-            NavigationStack.shared.addRoomToNavigationStack(kHome)
-            NavigationStack.shared.printContents()
-            return
+        if let userText = self.nobInputField.text {
+            RoomsCache.shared.saveRoom(userText, roomName: kHome)
         }
     }
     

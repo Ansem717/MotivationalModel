@@ -40,11 +40,15 @@ class NavigationStack {
             head.key = key
             return
         }
-        
         var current: NavigationStackRoom? = head
+        
+        if key == findCurrentRoomInNavStack() {
+            return //User is now unable to re-visit the room they are already in (using Menu -> Home / Goto)
+        }
         
         while current != nil {
             if current?.next == nil {
+                
                 let newRoom = NavigationStackRoom()
                 newRoom.prev = current
                 newRoom.key = key
@@ -60,7 +64,6 @@ class NavigationStack {
         if self.isEmpty() {
             return
         }
-        
         var current: NavigationStackRoom? = head
         
         while current != nil {
@@ -80,7 +83,6 @@ class NavigationStack {
         if self.isEmpty() {
             return kHome
         }
-        
         var current: NavigationStackRoom? = head
         
         while current != nil{
