@@ -31,8 +31,8 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     //MARK: Reference Variables
     var currRoom: Room?
     var animationDuration: Double?
+    var soonToBeSubtitle: String = ""
     var roomReferenceName: String = kValueProp
-    let reversePushTransition = ReversePush(duration: 1.0)
     
     //MARK: Inheritted Functions
     override func viewDidLoad() {
@@ -74,6 +74,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     func setup(roomName: String) {
         
         self.backMenuButton.enabled = false
+        self.backMenuButton.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: .Disabled)
         
         print("AdaptVC Setup - parameter roomName: \(roomName)");print("");
         let nextRoom = RoomsCache.shared.findRoom(roomName)
@@ -84,14 +85,14 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         let prevRoomShorthand = RoomsCache.shared.findRoom(prevRoomName).abbreviation
         
         if let current = self.currRoom {
-            
             if let userText = self.userInputArea.text {
                 RoomsCache.shared.saveRoom(userText, roomName: current.title)
             }
             for key in current.buttons {
                 if roomName == key {
-                    print("ADD SUBTITLE - destination: \(key) - source: \(current.title)");print("");
-                    
+                    soonToBeSubtitle = current.subtitles[key]!
+                }
+                
                     /*OK HERES A TRIVIA QUESTION!s
                     
                     If I go from Value Prop to Customer Needs, then the above print statement should trigger.
@@ -99,7 +100,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
                     
                     Does it currently trigger if I use GOTO to jump from Value Prop to Customer Needs?
                     */
-                }
+                
             }
             
             animateLEAVE { (finished) -> () in
@@ -109,6 +110,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
                 self.userInputArea.text = nextRoom.userText
                 self.descriptionLabel.text = nextRoom.descript
                 self.navigationItem.title = nextRoom.title
+                self.subtitleLabel.text = self.soonToBeSubtitle
                 self.backMenuButton.title = "\(Icons.shared.prevArrow) \(prevRoomShorthand)"
                 for button in self.buttonsUIArray {
                     button.titleLabel?.lineBreakMode = .ByWordWrapping
@@ -161,6 +163,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
             self.userInputArea.text = nextRoom.userText
             self.descriptionLabel.text = nextRoom.descript
             self.navigationItem.title = nextRoom.title
+            self.subtitleLabel.text = self.soonToBeSubtitle
             self.backMenuButton.title = "\(Icons.shared.prevArrow) \(prevRoomShorthand)"
             for button in self.buttonsUIArray {
                 button.titleLabel?.lineBreakMode = .ByWordWrapping
@@ -307,10 +310,10 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         //2) check if I'm going to kHome.
         let roomKey = NavigationStack.shared.findCurrentRoomInNavStack()
         if roomKey == kHome {
-            //REVERSE PUSH
+            //REVERSE PUSH?
             performSegueWithIdentifier("AdaptToHomeSegue", sender: nil)
         } else {
-            //REVERSE ANIMATE
+            //REVERSE ANIMATE?
             setup(roomKey)
         }
     }
@@ -330,10 +333,10 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         
     }
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
-    {
-        return self.reversePushTransition
-    }
+//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+//    {
+//        return ReversePush()
+//    }
     
 }
 

@@ -10,33 +10,28 @@ import UIKit
 
 class ReversePush: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var duration = 1.0
-    
-    init(duration: NSTimeInterval)
-    {
-        self.duration = duration
-    }
-    
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
-        return self.duration
+        return 0.5
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+    func animateTransition(context: UIViewControllerContextTransitioning)
     {
-        guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {return}
-        guard let containerView = transitionContext.containerView() else {return}
+        guard let toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey) else {fatalError()}
+        guard let containerView = context.containerView() else {return}
+        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey) else {fatalError()}
         
-        let finalFrame = transitionContext.finalFrameForViewController(toViewController)
+        let finalFrame = context.finalFrameForViewController(toVC)
         let screenBounds = UIScreen.mainScreen().bounds
         
-        toViewController.view.frame = CGRectOffset(finalFrame, 0.0, screenBounds.size.height)
-        containerView.addSubview(toViewController.view)
+        toVC.view.frame = CGRectOffset(finalFrame, 0.0, screenBounds.size.height)
+        containerView.addSubview(toVC.view)
+        containerView.insertSubview(toVC.view, aboveSubview: fromVC.view)
         
-        UIView.animateWithDuration(self.duration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-            toViewController.view.frame = finalFrame
+        UIView.animateWithDuration(transitionDuration(context), animations: { () -> Void in
+            toVC.view.frame = finalFrame
             }) { (finished) -> Void in
-                transitionContext.completeTransition(true)
+                context.completeTransition(true)
         }
     }
     
