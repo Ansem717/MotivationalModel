@@ -26,7 +26,8 @@ class Icons {
     func prefixGreencheckmark(text: String) -> NSMutableAttributedString {
         let applyPrefix = "\(self.checkmark) \(text)"
         let mutableString = NSMutableAttributedString(string: applyPrefix)
-        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: NSMakeRange(0, 1))
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 0.0, green: 0.5, blue: 0.0, alpha: 1.0), range: NSMakeRange(0, 1))
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: NSMakeRange(1, mutableString.length-1))
         return mutableString
     }
     
@@ -34,13 +35,14 @@ class Icons {
         let applyPrefix = "\(self.exclamation) \(text)"
         let mutableString = NSMutableAttributedString(string: applyPrefix)
         mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, 1))
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: NSMakeRange(1, mutableString.length-1))
         return mutableString
     }
     
     func prefixRedX(text: String) -> NSMutableAttributedString {
         let applyPrefix = "\(self.redx) \(text)"
         let mutableString = NSMutableAttributedString(string: applyPrefix)
-        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, 1))
+        mutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, mutableString.length))
         return mutableString
     }
 }

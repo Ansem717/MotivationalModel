@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MotivationalModel.xcodeproj">
+      location = "self:/Users/AndyMalik/Desktop/MotivationalModel/MotivationalModel/MotivationalModel.xcodeproj">
    </FileRef>
 </Workspace>

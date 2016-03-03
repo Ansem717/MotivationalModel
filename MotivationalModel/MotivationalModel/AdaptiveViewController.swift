@@ -40,6 +40,7 @@ class AdaptiveViewController: UIViewController {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
+        
         //Notification to save data for when app is interrupted, like a user Pressing Home, getting a phone call / text, and when a user doubletaps home and terminates the app.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIApplicationWillResignActiveNotificationObserver", name: UIApplicationWillResignActiveNotification, object: nil)
         
@@ -334,6 +335,10 @@ class AdaptiveViewController: UIViewController {
         }
     }
     
+    //MARK: Navigation functions:
+    @IBAction func unwindToAdaptiveView(unwindSegue: UIStoryboardSegue) {
+        print("TIME TRAVEL!!")
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let current = self.currRoom {

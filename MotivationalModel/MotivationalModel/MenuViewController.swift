@@ -20,6 +20,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         setupMenu()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,7 +28,11 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
     
     func setupMenu() {
-        
+
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     //MARK: Button Function
@@ -37,17 +42,14 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         
         switch (buttonName) {
             //Home is omitted since we're just using an unwind segue
-        case "Go To": print("Go To Pressed")
+        case "Go To": self.performSegueWithIdentifier("MenuToGotoSegue", sender: nil)
         case "E-mail": confirmUserName("email")
         case "Print": printWithPDF()
-        case "About": print("About Pressed")
+        case "About": self.performSegueWithIdentifier("MenuToAboutSegue", sender: nil)
         case "Close": dismissViewControllerAnimated(true, completion: nil)
         default: print("Default was hit?")
         }
-        
-        
     }
-    
     
     func confirmUserName(destination: String) {
         if RoomsCache.shared.username == "" {
@@ -60,6 +62,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
             namePopup.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
                 self.getUserName(destination)
             }))
+            namePopup.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
             self.presentViewController(namePopup, animated: true, completion: nil)
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     static func archivePath(optionalPath: String = "archived") -> String {

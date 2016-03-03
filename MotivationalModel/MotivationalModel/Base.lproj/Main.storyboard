@@ -6,6 +6,183 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Goto View Controller-->
+        <scene sceneID="xzU-yM-iO9">
+            <objects>
+                <viewController id="XHM-40-DTc" customClass="GotoViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rXL-Dp-bwc"/>
+                        <viewControllerLayoutGuide type="bottom" id="EQ1-2v-WwQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XbW-DK-iuT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pqx-lD-Glk">
+                                <rect key="frame" x="0.0" y="64" width="600" height="436"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g90-tL-YJz">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" red="0.61504407049999998" green="0.0" blue="0.1148164044" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="VI4-uo-D6F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCx-RR-Frl">
+                                        <rect key="frame" x="0.0" y="40" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" white="0.038459521810000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Value Proposition">
+                                            <color key="titleColor" red="0.058823529409999999" green="0.25098039220000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="yWV-yq-90x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9n-yf-5dP">
+                                        <rect key="frame" x="0.0" y="80" width="600" height="35.5"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Required Competency">
+                                            <color key="titleColor" red="0.058823529409999999" green="0.25098039220000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="FDW-TG-pb9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJw-bP-RCm">
+                                        <rect key="frame" x="0.0" y="120" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Customer Needs">
+                                            <color key="titleColor" red="0.058823529409999999" green="0.25098039220000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="baZ-Xs-lPF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVj-Xz-fkj">
+                                        <rect key="frame" x="0.0" y="160" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Resource / Asset">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="0ui-dZ-Gve"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZD4-uB-f8t">
+                                        <rect key="frame" x="0.0" y="200" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Partner Type">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="cNK-TY-NLG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uh-F5-EQr">
+                                        <rect key="frame" x="0.0" y="240" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Products and Services">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="8HD-RE-QOP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWK-TA-hi2">
+                                        <rect key="frame" x="0.0" y="280" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Cost and Revenue Models">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="IJE-Dt-frk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC0-qt-Uhk">
+                                        <rect key="frame" x="0.0" y="320" width="600" height="35.5"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Channels">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="KKD-iI-sui"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hT-0N-WX5">
+                                        <rect key="frame" x="0.0" y="361" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Geographies and Locales">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="oRI-KE-UVo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnG-1y-sQZ">
+                                        <rect key="frame" x="0.0" y="401" width="600" height="35"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Customer Type">
+                                            <color key="titleColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="globalGotoButtonFunction:" destination="XHM-40-DTc" eventType="touchUpInside" id="Hhv-0M-zIB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="pqx-lD-Glk" firstAttribute="top" secondItem="rXL-Dp-bwc" secondAttribute="bottom" id="DPE-N6-3EX"/>
+                            <constraint firstAttribute="trailing" secondItem="pqx-lD-Glk" secondAttribute="trailing" id="Lzt-r4-0of"/>
+                            <constraint firstItem="pqx-lD-Glk" firstAttribute="leading" secondItem="XbW-DK-iuT" secondAttribute="leading" id="OLK-nh-aBD"/>
+                            <constraint firstItem="EQ1-2v-WwQ" firstAttribute="top" secondItem="pqx-lD-Glk" secondAttribute="bottom" constant="100" id="rZg-La-nvX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3P9-QC-kAi"/>
+                    <connections>
+                        <outletCollection property="gotoButtonsCollection" destination="NCx-RR-Frl" collectionClass="NSMutableArray" id="W27-Gg-4P4"/>
+                        <outletCollection property="gotoButtonsCollection" destination="M9n-yf-5dP" collectionClass="NSMutableArray" id="3YX-xC-P1D"/>
+                        <outletCollection property="gotoButtonsCollection" destination="YJw-bP-RCm" collectionClass="NSMutableArray" id="L76-Ic-ofD"/>
+                        <outletCollection property="gotoButtonsCollection" destination="bVj-Xz-fkj" collectionClass="NSMutableArray" id="vvz-sO-mZw"/>
+                        <outletCollection property="gotoButtonsCollection" destination="ZD4-uB-f8t" collectionClass="NSMutableArray" id="8VR-Ur-jD7"/>
+                        <outletCollection property="gotoButtonsCollection" destination="1Uh-F5-EQr" collectionClass="NSMutableArray" id="870-Oz-1Al"/>
+                        <outletCollection property="gotoButtonsCollection" destination="iWK-TA-hi2" collectionClass="NSMutableArray" id="MBl-aq-ojI"/>
+                        <outletCollection property="gotoButtonsCollection" destination="wC0-qt-Uhk" collectionClass="NSMutableArray" id="oqm-a8-ATB"/>
+                        <outletCollection property="gotoButtonsCollection" destination="3hT-0N-WX5" collectionClass="NSMutableArray" id="5gQ-r1-bcU"/>
+                        <outletCollection property="gotoButtonsCollection" destination="CnG-1y-sQZ" collectionClass="NSMutableArray" id="Der-P1-EgE"/>
+                        <segue destination="XCk-Je-x53" kind="show" identifier="GotoToAdaptView" id="0ff-92-jji"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i3V-fa-sij" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="-1243"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="w8v-4j-jAu">
             <objects>
@@ -113,7 +290,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="D0f-wk-Cdi" kind="show" identifier="MenuToEmailSegue" id="czS-Fu-Ma5"/>
+                        <segue destination="NfJ-wN-BR0" kind="presentation" identifier="MenuToAboutSegue" id="czS-Fu-Ma5"/>
+                        <segue destination="ExU-pl-t9Y" kind="show" identifier="MenuToGotoSegue" id="MRM-Ex-IPm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yi2-45-3Pw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,10 +299,10 @@
             </objects>
             <point key="canvasLocation" x="1678" y="-505"/>
         </scene>
-        <!--Email View Controller-->
+        <!--About View Controller-->
         <scene sceneID="yQW-YW-0fs">
             <objects>
-                <viewController id="D0f-wk-Cdi" customClass="EmailViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D0f-wk-Cdi" customClass="AboutViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Bm-Gs-Ffh"/>
                         <viewControllerLayoutGuide type="bottom" id="xWy-ZE-DdJ"/>
@@ -132,12 +310,48 @@
                     <view key="view" contentMode="scaleToFill" id="D1E-9h-bFe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem... Ipsum... Dolor..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LG3-6s-dq7">
+                                <rect key="frame" x="20" y="72" width="560" height="481"/>
+                                <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.023529411760000001" green="0.19215686269999999" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Copyright 2016, Vanguard Strategies Inc.  All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMd-To-Xr4">
+                                <rect key="frame" x="20" y="567" width="560" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LG3-6s-dq7" firstAttribute="leading" secondItem="D1E-9h-bFe" secondAttribute="leading" constant="20" id="Kyh-ua-AcO"/>
+                            <constraint firstItem="LG3-6s-dq7" firstAttribute="top" secondItem="1Bm-Gs-Ffh" secondAttribute="bottom" constant="8" id="RJz-AJ-qkr"/>
+                            <constraint firstAttribute="trailing" secondItem="LG3-6s-dq7" secondAttribute="trailing" constant="20" id="WJ8-AW-gb0"/>
+                            <constraint firstItem="LMd-To-Xr4" firstAttribute="leading" secondItem="D1E-9h-bFe" secondAttribute="leading" constant="20" id="Yzm-HQ-oIV"/>
+                            <constraint firstItem="LMd-To-Xr4" firstAttribute="top" secondItem="LG3-6s-dq7" secondAttribute="bottom" constant="14" id="lUy-Oq-9hH"/>
+                            <constraint firstAttribute="trailing" secondItem="LMd-To-Xr4" secondAttribute="trailing" constant="20" id="m8B-dc-ou9"/>
+                            <constraint firstItem="xWy-ZE-DdJ" firstAttribute="top" secondItem="LMd-To-Xr4" secondAttribute="bottom" constant="15" id="s76-Pv-T4b"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="SVZ-Eq-mAs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="q3Y-Ap-IIn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="D0f-wk-Cdi" id="UGL-uP-cXT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="aboutTextView" destination="LG3-6s-dq7" id="Hcc-NY-aKY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pv9-xb-5mZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2364" y="-505"/>
+            <point key="canvasLocation" x="3084" y="-505"/>
         </scene>
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -436,10 +650,47 @@ Most businesses today have more than one model, and a future version of this app
             </objects>
             <point key="canvasLocation" x="166" y="311"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UQm-6b-pD7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NfJ-wN-BR0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="B48-nQ-7zL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D0f-wk-Cdi" kind="relationship" relationship="rootViewController" id="yei-MF-LPk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMK-Nk-Gxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2364" y="-505"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e6Z-7n-eaI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ExU-pl-t9Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uND-uL-rUS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XHM-40-DTc" kind="relationship" relationship="rootViewController" id="GcQ-9v-dhC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUW-eP-bnt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="-1243"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="01V-uM-kpP"/>
+        <segue reference="qWp-Ru-Fal"/>
+        <segue reference="0ff-92-jji"/>
         <segue reference="WjQ-BQ-LbO"/>
-        <segue reference="BTX-Fs-qy7"/>
     </inferredMetricsTieBreakers>
 </document>
