@@ -9,8 +9,8 @@
 import Foundation
 
 extension String {
-    static func archivePath() -> String {
-        guard let archivePath = NSURL.archiveURL().path else { fatalError("Can't get archive path?") }
+    static func archivePath(optionalPath: String = "archived") -> String {
+        guard let archivePath = NSURL.archiveURL(optionalPath).path else { fatalError("Can't get archive path?") }
         return archivePath
     }
 }
@@ -21,8 +21,8 @@ extension NSURL {
         return documentsDirectory
     }
     
-    class func archiveURL() -> NSURL
+    class func archiveURL(optionalPath: String = "archived") -> NSURL
     {
-        return self.documentsDirectory().URLByAppendingPathComponent("motivational-model-archived")
+        return self.documentsDirectory().URLByAppendingPathComponent("motivational-model-\(optionalPath)")
     }
 }

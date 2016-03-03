@@ -39,7 +39,7 @@ class MenuViewController: UIViewController {
             case "Go To":
                 print("Go to Pressed!!");print("");
             case "E-mail":
-                print("E-mail Pressed!!");print("");
+                print("E-mail Pressed!!");email();
             case "Print":
                 print("Print Pressed!!");print("");
             case "About":
@@ -52,6 +52,60 @@ class MenuViewController: UIViewController {
         
         
     }
+    
+    func email() {
+        confirmUserName()
+    }
+    
+    func makePDF() {
+        let pdfdoc = DocumentOutput(userName: RoomsCache.shared.username)
+        pdfdoc.generatePDF()
+    }
 
+    func confirmUserName() {
+        if RoomsCache.shared.username == "" {
+            getUserName()
+        } else {
+            let namePopup = UIAlertController(title: "Name", message: "Is your name \(RoomsCache.shared.username)?", preferredStyle: .Alert)
+            namePopup.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                self.makePDF()
+            }))
+            namePopup.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+                self.getUserName()
+            }))
+            self.presentViewController(namePopup, animated: true, completion: nil)
+        }
+    }
+    
+    func getUserName() {
+        let namePopup = UIAlertController(title: "Name", message: "Enter your full name", preferredStyle: .Alert)
+        
+        let nameAction = UIAlertAction(title: "Accept", style: .Default) { (action) -> Void in
+            let nameTextField = namePopup.textFields![0] as UITextField
+            nameTextField.autocapitalizationType = .Words
+            guard let name = nameTextField.text else { fatalError("ASKDJFASKDJFSLKFJSDFLDSJFL") }
+            RoomsCache.shared.username = name
+            NSKeyedArchiver.archiveRootObject(RoomsCache.shared.username, toFile: String.archivePath("username"))
+            self.makePDF()
+        }
+        nameAction.enabled = false
+        
+        namePopup.addTextFieldWithConfigurationHandler { (textfield) -> Void in
+            textfield.placeholder = "Name"
+            
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textfield, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification) -> Void in
+                nameAction.enabled = textfield.text != ""
+            })
+        }
+
+        namePopup.addAction(nameAction)
+        namePopup.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        
+        self.presentViewController(namePopup, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
 }

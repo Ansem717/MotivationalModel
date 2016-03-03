@@ -17,6 +17,7 @@ class Icons {
     let nextArrow = "\u{276F}"
     let prevArrow = "\u{276E}"
     let bullet = "\u{204D}"
+    let dot = "\u{2022}"
     
     static let shared = Icons()
     

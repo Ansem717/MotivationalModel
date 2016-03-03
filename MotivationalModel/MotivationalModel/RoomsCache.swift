@@ -29,7 +29,13 @@ class RoomsCache { //Singleton to form the rooms - permanently
         guard let data = NSData(contentsOfURL: NSURL.archiveURL()) else { return }
         guard let archivedRooms = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Room] else { return }
         self.rooms = archivedRooms
+        
+        guard let nameData = NSData(contentsOfURL: NSURL.archiveURL("username")) else { return }
+        guard let archivedUsername = NSKeyedUnarchiver.unarchiveObjectWithData(nameData) as? String else { return }
+        self.username = archivedUsername
     }
+    
+    var username: String = ""
     
     var rooms = [
         Room(
@@ -89,7 +95,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
                 kGeoAndLocal : "\(kChannels) affect and demand \(kGeoAndLocal)",
                 kPartnerType : "\(kPartnerType) affects \(kChannels)"],
             abbreviation: "C",
-            descript: "This entity represents sales, distribution and communication channels in the business model. Distribution channels are the mechanisms by which the customer's product or service reaches the customer.\n\n\(Icons.shared.bullet)  For products, the distribution channels element will describe the flow of goods from manufacturing to market, including inventory and retailing.\n\n\(Icons.shared.bullet)  For manufacturing organizations, this element also describes the sourcing of parts and construction of the product or products themselves. \n\n\(Icons.shared.bullet)  For services, this element describes the location, management, and provisioning of service resources to the customers on an as-needed basis. Sales channels are the mechanisms by which the product or service is sold to the customer. This typically includes owned retail, owned online, partner retail, partner online, and mobile salesforce.\n\nCommunication channels include the mechanisms by which the product's availability and features are described to the customer.  This includes advertising (TV, Radio, Print, Internet, Mobile, Billboard, Direct mail, In-store, In-partner-store) as well as word of mouth, event promotions, and seminars.",
+            descript: "This entity represents sales, distribution and communication channels in the business model. Distribution channels are the mechanisms by which the customer's product or service reaches the customer.\n\n\(Icons.shared.bullet)  For products, the distribution channels element will describe the flow of goods from manufacturing to market, including inventory and retailing.\n\n\(Icons.shared.bullet)  For manufacturing organizations, this element also describes the sourcing of parts and construction of the product or products themselves. \n\n\(Icons.shared.bullet)  For services, this element describes the location, management, and provisioning of service resources to the customers on an as-needed basis.\n\nSales channels are the mechanisms by which the product or service is sold to the customer. This typically includes owned retail, owned online, partner retail, partner online, and mobile salesforce.\n\nCommunication channels include the mechanisms by which the product's availability and features are described to the customer.  This includes advertising (TV, Radio, Print, Internet, Mobile, Billboard, Direct mail, In-store, In-partner-store) as well as word of mouth, event promotions, and seminars.",
             buttons: [kCostAndRev, kProdAndServ, kCustomerType, kGeoAndLocal, kPartnerType]
         ),
         Room(

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewControllerTransitioningDelegate {
+class AdaptiveViewController: UIViewController {
     
-    //MARK: UI ELEMENTS
+    //MARK: UI Elements
     @IBOutlet weak var userInputArea: UITextView!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UITextView!
@@ -25,6 +25,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     @IBOutlet weak var trailingUserInputConstraint: NSLayoutConstraint!
     @IBOutlet weak var leadingDescriptionConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingDescriptionConstraint: NSLayoutConstraint!
+    @IBOutlet weak var subtitleTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var backMenuButton: UIBarButtonItem!
     
@@ -38,6 +39,9 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        //Notification to save data for when app is interrupted, like a user Pressing Home, getting a phone call / text, and when a user doubletaps home and terminates the app.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIApplicationWillResignActiveNotificationObserver", name: UIApplicationWillResignActiveNotification, object: nil)
         
         //Stylization
         descriptionLabel.backgroundColor = UIColor(white: 0.8, alpha: 0.9)
@@ -70,13 +74,24 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         self.descriptionLabel.setContentOffset(CGPointZero, animated: false)
     }
     
+    //MARK: UIApplication Will Resign Active notification observer function & Deinit
+    func UIApplicationWillResignActiveNotificationObserver() {
+        if let current = self.currRoom {
+            if let userText = self.userInputArea.text {
+                RoomsCache.shared.saveRoom(userText, roomName: current.title)
+            }
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     //MARK: Large Setup Function
     func setup(roomName: String) {
         
         self.backMenuButton.enabled = false
-        self.backMenuButton.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.whiteColor()], forState: .Disabled)
         
-        print("AdaptVC Setup - parameter roomName: \(roomName)");print("");
         let nextRoom = RoomsCache.shared.findRoom(roomName)
         NavigationStack.shared.addRoomToNavigationStack(roomName)
         NavigationStack.shared.printContents()
@@ -179,26 +194,18 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
                 
                 switch index {
                 case 0:
-                    setPosition(50, y: 473, Xconstraint: self.leadingButtonConstraints[index], Yconstraint: self.bottomButtonConstraints[index])
+                   self.leadingButtonConstraints[index].constant = 50
+                   self.bottomButtonConstraints[index].constant = 47
                 case 1:
-                    setPosition(230, y: 473, Xconstraint: self.leadingButtonConstraints[index], Yconstraint: self.bottomButtonConstraints[index])
+                    self.leadingButtonConstraints[index].constant = 230
+                    self.bottomButtonConstraints[index].constant = 47
                 default:
-                    setPosition(y: 673, Yconstraint: self.bottomButtonConstraints[index])
+                    self.bottomButtonConstraints[index].constant = -200
                 }
                 
                 self.buttonsUIArray[index].layoutIfNeeded()
                 self.backMenuButton.enabled = true
             }
-        }
-    }
-    
-    func setPosition(x: CGFloat? = nil, y: CGFloat? = nil, Xconstraint: NSLayoutConstraint? = nil, Yconstraint: NSLayoutConstraint? = nil) {
-        if let x = x, let Xconstraint = Xconstraint
-        {
-            Xconstraint.constant = x
-        }
-        if let y = y, let Yconstraint = Yconstraint {
-            Yconstraint.constant =  520-y
         }
     }
     
@@ -211,7 +218,6 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         let lengthOfTimeToRise = (animationDuration) / Double(numOfButtons) / 4
         let lengthOfTimeToFall = lengthOfTimeToRise * 3
         
-        
         leadingUserInputConstraint.constant -= view.bounds.width
         trailingUserInputConstraint.constant += view.bounds.width
         
@@ -222,20 +228,25 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         leadingDescriptionConstraint.constant -= view.bounds.width
         trailingDescriptionConstraint.constant += view.bounds.width
         
-        UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.1, options: .CurveLinear, animations: { () -> Void in
+        UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.2, options: .CurveLinear, animations: { () -> Void in
             self.descriptionLabel.layoutIfNeeded()
         }, completion: nil)
+        
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.subtitleLabel.alpha = 0.0
+            self.subtitleLabel.transform = CGAffineTransformTranslate(self.subtitleLabel.transform, 0.0, -30.0)
+        })
         
         for var ii = 0; ii < numOfButtons; ii++ {
             
             let index = ii
             let adaptDelay = Double(index) * lengthOfTimeToRise
             
-            self.bottomButtonConstraints[index].constant += 10
-            
+            self.bottomButtonConstraints[index].constant += 15
             
             UIView.animateWithDuration(lengthOfTimeToRise, delay: adaptDelay, options: .CurveLinear, animations: { () -> Void in
                 self.buttonsUIArray[index].layoutIfNeeded()
+                
             }, completion: { (finished) -> Void in
                 
                 if finished {
@@ -258,7 +269,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         
         guard let currentRoomExists = self.currRoom else { return }
         let numOfButtons = currentRoomExists.buttons.count
-        let animationDuration = Double(numOfButtons)*0.25
+        let animationDuration = Double(numOfButtons)*0.3
         let lengthOfTimeToRise = (animationDuration) / Double(currentRoomExists.buttons.count)
         
         leadingUserInputConstraint.constant = 20.0
@@ -279,6 +290,11 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
             self.descriptionLabel.scrollRangeToVisible(NSRange(location: 0, length: 0))
         })
         
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.subtitleLabel.alpha = 1.0
+            self.subtitleLabel.transform = CGAffineTransformTranslate(self.subtitleLabel.transform, 0.0, 30.0)
+        }
+        
         for var ii = 0; ii < self.currRoom?.buttons.count; ii++ {
             
             let index = ii
@@ -296,7 +312,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         }
     }
     
-    //MARK: Button Functions.
+    //MARK: Button Functions
     @IBAction func nextpageButtonPressed(sender: UIButton) {
         guard let buttonKey = sender.titleLabel!.text else { fatalError("Uhh?") }
         setup(buttonKey)
@@ -310,7 +326,7 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         //2) check if I'm going to kHome.
         let roomKey = NavigationStack.shared.findCurrentRoomInNavStack()
         if roomKey == kHome {
-            //REVERSE PUSH?
+            //REVERSE PUSH? No time for fancy right now. Basic forward animations and pushes will have to do.
             performSegueWithIdentifier("AdaptToHomeSegue", sender: nil)
         } else {
             //REVERSE ANIMATE?
@@ -325,23 +341,19 @@ class AdaptiveViewController: UIViewController, UIScrollViewDelegate, UIViewCont
                 RoomsCache.shared.saveRoom(userText, roomName: current.title)
             }
         }
-        if segue.identifier == "AdaptToHomeSegue" {
-            if let ivc = segue.destinationViewController as? IntroViewController {
-                ivc.transitioningDelegate = self
-            }
-        }
-        
     }
-    
-//    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
-//    {
-//        return ReversePush()
-//    }
     
 }
 
-
-
+extension AdaptiveViewController: UITextViewDelegate {
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return true
+        }
+        return true
+    }
+}
 
 
 

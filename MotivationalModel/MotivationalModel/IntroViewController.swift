@@ -10,16 +10,23 @@ import UIKit
 
 class IntroViewController: UIViewController {
 
-    // Storyboard Items
-    
+    //MARK: UI Elements
     @IBOutlet weak var introBody: UILabel!
     @IBOutlet weak var nobLabel: UILabel!
     @IBOutlet weak var nobInputField: UITextField!
     @IBOutlet weak var viewPropButtonOutlet: UIButton!
     @IBOutlet weak var backButton: UIBarButtonItem!
     
+    //MARK: Inheritted Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Notifications from Keyboard to move the view upward
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIKeyboardWillShowNotificationObserver:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIKeyboardWillHideNotificationObserver:", name: UIKeyboardWillHideNotification, object: nil)
+        
+        //Notifications for when applicationWillResignActive
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIApplicationWillResignActiveNotificationObserver", name: UIApplicationWillResignActiveNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,6 +37,50 @@ class IntroViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    //MARK: Notifcation for KeyboardWillShow, KeyboardWillHide, applicationWillResignActive, as well as the deinit method
+    
+    func UIKeyboardWillShowNotificationObserver(sender: NSNotification) {
+        guard let userInfo = sender.userInfo else { fatalError("No user info from notification") }
+        guard let keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { fatalError("User info has no key of UUIKeyboardFrameBeginUserInfoKey  OR  It is not of type NSValue") }
+        let keyboardSize = keyboard.CGRectValue()
+        var selfFrame = self.view.frame
+        selfFrame.origin.y -= keyboardSize.height
+        
+        if let keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+            UIView.animateWithDuration(keyboardDuration.doubleValue, animations: { () -> Void in
+                self.view.frame = selfFrame
+            })
+        } else {
+            self.view.frame = selfFrame
+        }
+    }
+    
+    func UIKeyboardWillHideNotificationObserver(sender: NSNotification) {
+        guard let userInfo = sender.userInfo else { fatalError("No user info from notification") }
+        guard let keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { fatalError("User info has no key of UUIKeyboardFrameBeginUserInfoKey  OR  It is not of type NSValue") }
+        let keyboardSize = keyboard.CGRectValue()
+        var selfFrame = self.view.frame
+        selfFrame.origin.y += keyboardSize.height
+        
+        if let keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+            UIView.animateWithDuration(keyboardDuration.doubleValue, animations: { () -> Void in
+                self.view.frame = selfFrame
+            })
+        } else {
+            self.view.frame = selfFrame
+        }
+    }
+    
+    func UIApplicationWillResignActiveNotificationObserver() {
+        if let userText = self.nobInputField.text {
+            RoomsCache.shared.saveRoom(userText, roomName: kHome)
+        }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     //Setup UI
@@ -83,3 +134,12 @@ class IntroViewController: UIViewController {
         }
     }
 }
+
+extension IntroViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+}
+
+

@@ -130,13 +130,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44F-OF-P3g">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="44F-OF-P3g">
                                 <rect key="frame" x="27" y="459" width="549" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jwL-YY-3P7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4yN-Fg-pg5"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Business:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIT-Yf-5QU">
                                 <rect key="frame" x="228" y="430" width="142.5" height="21"/>
@@ -245,7 +248,10 @@ Most businesses today have more than one model, and a future version of this app
                                 </constraints>
                                 <color key="textColor" red="0.039215686274509803" green="0.14509803921568629" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XCk-Je-x53" id="mD5-By-QdW"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KL-Rc-Czn">
                                 <rect key="frame" x="80" y="500" width="97" height="60"/>
@@ -303,7 +309,7 @@ Most businesses today have more than one model, and a future version of this app
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Td-fn-wF6">
-                                <rect key="frame" x="20" y="72" width="560" height="15"/>
+                                <rect key="frame" x="20" y="72" width="560" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -365,6 +371,7 @@ Most businesses today have more than one model, and a future version of this app
                         <outlet property="leadingDescriptionConstraint" destination="anC-5I-bZL" id="AJF-nR-6Z8"/>
                         <outlet property="leadingUserInputConstraint" destination="mqf-1A-8SD" id="7jp-qd-tnK"/>
                         <outlet property="subtitleLabel" destination="8Td-fn-wF6" id="Ssx-sa-RHh"/>
+                        <outlet property="subtitleTopConstraint" destination="ODW-kO-ako" id="eou-8N-Kx1"/>
                         <outlet property="trailingDescriptionConstraint" destination="d9A-B4-lH7" id="9Fe-fA-DHU"/>
                         <outlet property="trailingUserInputConstraint" destination="nNX-MR-brR" id="8sI-1d-psS"/>
                         <outlet property="userInputArea" destination="Ga9-qX-2aM" id="V1l-u2-KFJ"/>
@@ -410,8 +417,8 @@ Most businesses today have more than one model, and a future version of this app
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qWp-Ru-Fal"/>
         <segue reference="01V-uM-kpP"/>
         <segue reference="WjQ-BQ-LbO"/>
+        <segue reference="BTX-Fs-qy7"/>
     </inferredMetricsTieBreakers>
 </document>
