@@ -47,7 +47,7 @@ class DocumentOutput {
             let rightHeadingRect: CGRect = CGRectMake(pageSize.width-200, 20, 190, 50)
             
             //Specify Formatting for all headings. Only one format change necessary: alignment to Center
-            guard let headingParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as? NSMutableParagraphStyle else { fatalError() }
+            guard let headingParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as? NSMutableParagraphStyle else { fatalError("1") }
             headingParagraphStyle.alignment = .Center
             let headingAttributes = [NSFontAttributeName : normalFont, NSParagraphStyleAttributeName : headingParagraphStyle]
             
@@ -76,24 +76,25 @@ class DocumentOutput {
             NSString(string: businessName).drawInRect(businessNameRect, withAttributes: businessNameAttrib)
             
             
+            
             //Now comes the fun part. We iterate through each room and print it's title and information.
             for var ii = 1; ii < RoomsCache.shared.rooms.count; ii++ {
                 
                 //Prepare! We need a consistant distance between text.
                 let yPosSection: CGFloat = CGFloat(ii*90) + 70.0
-                let yPosContent: CGFloat = CGFloat(ii*90) + 115.0
+                let yPosContent: CGFloat = CGFloat(ii*90) + 103.0
                 
                 //1) Define rect
                 let sectionTitleRect: CGRect = CGRectMake(50, yPosSection, pageSize.width-100, 50)
                 let contentRect: CGRect = CGRectMake(100, yPosContent, pageSize.width-200, 50)
                 
                 //2) Specify Formatting
-                guard let sectionTitleParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as? NSMutableParagraphStyle else { fatalError() }
+                guard let sectionTitleParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as? NSMutableParagraphStyle else { fatalError("2") }
                 sectionTitleParagraphStyle.lineBreakMode = .ByWordWrapping
                 sectionTitleParagraphStyle.alignment = .Left
                 let sectionTitleAttributes = [NSFontAttributeName : H2Font, NSParagraphStyleAttributeName : sectionTitleParagraphStyle]
                 
-                guard let contentParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as? NSMutableParagraphStyle else { fatalError() }
+                guard let contentParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as? NSMutableParagraphStyle else { fatalError("3") }
                 contentParagraphStyle.lineBreakMode = .ByWordWrapping
                 contentParagraphStyle.alignment = .Left
                 let contentAttributes = [NSFontAttributeName : normalFont, NSParagraphStyleAttributeName : contentParagraphStyle]
@@ -102,7 +103,7 @@ class DocumentOutput {
                 //3) Create NSString
                 let sectionTitle: NSString = "  \(RoomsCache.shared.rooms[ii].title)"
                 
-                guard let contentString = RoomsCache.shared.rooms[ii].userText else { fatalError() }
+                guard let contentString = RoomsCache.shared.rooms[ii].userText else { fatalError("4") }
                 
                 let contentText: NSString = "\(Icons.shared.bullet)\t\(contentString)"
                 
@@ -112,16 +113,13 @@ class DocumentOutput {
                 
             }
             
-            
-            
-            
             UIGraphicsEndPDFContext()
             
         } else { fatalError("Somehow not even \"\" was returned for RoomsCache.shared.findRoom(kHome).userText") }
     }
     
     func alertEmptyName() {
-        print("\(__FUNCTION__)")
+
     }
     
     func monthFinder(numberInFormOfString: String) -> String {

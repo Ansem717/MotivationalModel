@@ -82,7 +82,7 @@ class NavigationStack {
         
         while current != nil{
             if current?.next == nil {
-                guard let currentKey = current?.key else { fatalError() }
+                guard let currentKey = current?.key else { fatalError("7") }
                 return currentKey
             } else {
                 current = current?.next
@@ -101,7 +101,7 @@ class NavigationStack {
         
         while current != nil{
             if current?.next == nil {
-                guard let prevKey = current?.prev?.key else { fatalError() }
+                guard let prevKey = current?.prev?.key else { fatalError("8") }
                 return prevKey
             } else {
                 current = current?.next

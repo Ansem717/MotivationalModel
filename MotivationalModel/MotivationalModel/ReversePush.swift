@@ -17,9 +17,9 @@ class ReversePush: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(context: UIViewControllerContextTransitioning)
     {
-        guard let toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey) else {fatalError()}
+        guard let toVC = context.viewControllerForKey(UITransitionContextToViewControllerKey) else {fatalError("9")}
         guard let containerView = context.containerView() else {return}
-        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey) else {fatalError()}
+        guard let fromVC = context.viewControllerForKey(UITransitionContextFromViewControllerKey) else {fatalError("10")}
         
         let finalFrame = context.finalFrameForViewController(toVC)
         let screenBounds = UIScreen.mainScreen().bounds

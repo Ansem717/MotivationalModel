@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import MessageUI
 
-class EmailViewController: UIViewController {
-
+class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        showEmailWithPDF()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+
     
 }
