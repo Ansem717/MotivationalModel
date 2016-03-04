@@ -130,7 +130,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
         Room(
             title: kCustomerType,
             subtitles: [
-                kChannels : "\(kValueProp) serves \(kCustomerType)",
+                kChannels : "\(kChannels) serves \(kCustomerType)",
                 kCustomerNeeds : "\(kCustomerType) has \(kCustomerNeeds)",
                 kProdAndServ : "\(kProdAndServ) targeted to \(kCustomerType)"],
             abbreviation: "CT",
