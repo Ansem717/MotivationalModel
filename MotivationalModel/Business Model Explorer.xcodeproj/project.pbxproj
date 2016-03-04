@@ -40,7 +40,7 @@
 		E9BEBC7A1C80F049006F06A5 /* NavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
 		E9BEBC7C1C80F0C3006F06A5 /* NavStackROOM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavStackROOM.swift; sourceTree = "<group>"; };
 		E9BEBC7E1C810C20006F06A5 /* RoomsCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsCache.swift; sourceTree = "<group>"; };
-		E9CBEC531C703F960070AD2C /* MotivationalModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotivationalModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CBEC531C703F960070AD2C /* Business Model Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Business Model Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CBEC561C703F960070AD2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9CBEC581C703F960070AD2C /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		E9CBEC5B1C703F960070AD2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		E9CBEC541C703F960070AD2C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9CBEC531C703F960070AD2C /* MotivationalModel.app */,
+				E9CBEC531C703F960070AD2C /* Business Model Explorer.app */,
 			);
 			name = Products;
 			path = ..;
@@ -139,9 +139,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E9CBEC521C703F960070AD2C /* MotivationalModel */ = {
+		E9CBEC521C703F960070AD2C /* Business Model Explorer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9CBEC681C703F960070AD2C /* Build configuration list for PBXNativeTarget "MotivationalModel" */;
+			buildConfigurationList = E9CBEC681C703F960070AD2C /* Build configuration list for PBXNativeTarget "Business Model Explorer" */;
 			buildPhases = (
 				E9CBEC4F1C703F960070AD2C /* Sources */,
 				E9CBEC501C703F960070AD2C /* Frameworks */,
@@ -151,9 +151,9 @@
 			);
 			dependencies = (
 			);
-			name = MotivationalModel;
+			name = "Business Model Explorer";
 			productName = MotivationalModel;
-			productReference = E9CBEC531C703F960070AD2C /* MotivationalModel.app */;
+			productReference = E9CBEC531C703F960070AD2C /* Business Model Explorer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -172,7 +172,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E9CBEC4E1C703F960070AD2C /* Build configuration list for PBXProject "MotivationalModel" */;
+			buildConfigurationList = E9CBEC4E1C703F960070AD2C /* Build configuration list for PBXProject "Business Model Explorer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -185,7 +185,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E9CBEC521C703F960070AD2C /* MotivationalModel */,
+				E9CBEC521C703F960070AD2C /* Business Model Explorer */,
 			);
 		};
 /* End PBXProject section */
@@ -340,7 +340,7 @@
 				INFOPLIST_FILE = MotivationalModel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VanguardStrategiesInc.MotivationalModel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Business Model Explorer";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -354,7 +354,7 @@
 				INFOPLIST_FILE = MotivationalModel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VanguardStrategiesInc.MotivationalModel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Business Model Explorer";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -362,7 +362,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E9CBEC4E1C703F960070AD2C /* Build configuration list for PBXProject "MotivationalModel" */ = {
+		E9CBEC4E1C703F960070AD2C /* Build configuration list for PBXProject "Business Model Explorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9CBEC661C703F960070AD2C /* Debug */,
@@ -371,7 +371,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9CBEC681C703F960070AD2C /* Build configuration list for PBXNativeTarget "MotivationalModel" */ = {
+		E9CBEC681C703F960070AD2C /* Build configuration list for PBXNativeTarget "Business Model Explorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9CBEC691C703F960070AD2C /* Debug */,

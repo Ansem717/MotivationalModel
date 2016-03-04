@@ -44,7 +44,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
             //Home is omitted since we're just using an unwind segue
         case "Go To": self.performSegueWithIdentifier("MenuToGotoSegue", sender: nil)
         case "E-mail": confirmUserName("email")
-        case "Print": printWithPDF()
+        case "Print": makePDF("") // printWithPDF()
         case "About": self.performSegueWithIdentifier("MenuToAboutSegue", sender: nil)
         case "Close": dismissViewControllerAnimated(true, completion: nil)
         default: print("Default was hit?")
@@ -136,7 +136,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let path: NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
                 let documentDirectory = path.objectAtIndex(0)
                 let pdfPathWithFileName = documentDirectory.stringByAppendingPathComponent(fileName)
-                print(pdfPathWithFileName);print("")
+//                print(pdfPathWithFileName);print("")
                 
                 guard let fileData = NSData(contentsOfFile: pdfPathWithFileName) else { fatalError("6") }
                 let mimeType = "application/pdf"
