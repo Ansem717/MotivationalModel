@@ -387,9 +387,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-7h-6aC">
                                 <rect key="frame" x="20" y="72" width="560" height="346.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
+                                <string key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
  
-Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </mutableString>
+Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -460,10 +460,10 @@ Most businesses today have more than one model, and a future version of this app
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-qX-2aM">
-                                <rect key="frame" x="20" y="95" width="560" height="145"/>
+                                <rect key="frame" x="20" y="95" width="560" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="GUV-c3-VGT"/>
+                                    <constraint firstAttribute="height" constant="120" id="RSS-xt-7Ph"/>
                                 </constraints>
                                 <color key="textColor" red="0.039215686274509803" green="0.14509803921568629" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -528,17 +528,14 @@ Most businesses today have more than one model, and a future version of this app
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Td-fn-wF6">
-                                <rect key="frame" x="20" y="72" width="560" height="14.5"/>
+                                <rect key="frame" x="20" y="72" width="560" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-pc-97j">
-                                <rect key="frame" x="20" y="260" width="560" height="230"/>
+                                <rect key="frame" x="20" y="225" width="560" height="230"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="jpU-eb-L0U"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -549,9 +546,10 @@ Most businesses today have more than one model, and a future version of this app
                             <constraint firstItem="Ga9-qX-2aM" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="31" id="0xR-3l-Bfm"/>
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="n2G-6f-Uji" secondAttribute="bottom" constant="95" identifier="1" id="1zi-WK-BQE"/>
                             <constraint firstItem="8KL-Rc-Czn" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="80" identifier="2" id="2nk-0h-sHe"/>
+                            <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="uuD-pc-97j" secondAttribute="bottom" constant="145" id="2oi-pI-IuJ"/>
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="JgF-dQ-fCZ" secondAttribute="bottom" constant="95" identifier="3" id="2pz-MC-6Nw"/>
                             <constraint firstItem="n2G-6f-Uji" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" identifier="1" id="9n5-G0-yte"/>
-                            <constraint firstItem="uuD-pc-97j" firstAttribute="top" secondItem="Ga9-qX-2aM" secondAttribute="bottom" constant="20" id="Dbz-5Q-vLr"/>
+                            <constraint firstItem="uuD-pc-97j" firstAttribute="top" secondItem="Ga9-qX-2aM" secondAttribute="bottom" constant="10" id="Dbz-5Q-vLr"/>
                             <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="240" identifier="5" id="GUR-Jg-iM6"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="8" id="ODW-kO-ako"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="Sfc-5D-bv1"/>
@@ -563,6 +561,7 @@ Most businesses today have more than one model, and a future version of this app
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="centerX" secondItem="SkI-Dj-TTh" secondAttribute="centerX" id="eFu-bX-YlU"/>
                             <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="180" identifier="4" id="ecy-mx-8ic"/>
                             <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="120" identifier="3" id="hry-aa-gWd"/>
+                            <constraint firstItem="Ga9-qX-2aM" firstAttribute="top" secondItem="8Td-fn-wF6" secondAttribute="bottom" constant="8" symbolic="YES" id="hv8-6g-SL5"/>
                             <constraint firstItem="Ga9-qX-2aM" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="mqf-1A-8SD"/>
                             <constraint firstAttribute="trailing" secondItem="Ga9-qX-2aM" secondAttribute="trailing" constant="20" id="nNX-MR-brR"/>
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="0NA-GC-Vgq" secondAttribute="bottom" constant="95" identifier="5" id="o0D-2d-cb3"/>
@@ -673,8 +672,8 @@ Most businesses today have more than one model, and a future version of this app
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BTX-Fs-qy7"/>
-        <segue reference="WjQ-BQ-LbO"/>
+        <segue reference="qWp-Ru-Fal"/>
         <segue reference="Az2-Ci-68t"/>
+        <segue reference="WjQ-BQ-LbO"/>
     </inferredMetricsTieBreakers>
 </document>
