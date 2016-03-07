@@ -11,7 +11,8 @@ import UIKit
 class IntroViewController: UIViewController {
 
     //MARK: UI Elements
-    @IBOutlet weak var introBody: UILabel!
+    
+    @IBOutlet weak var introBody: UITextView!
     @IBOutlet weak var nobLabel: UILabel!
     @IBOutlet weak var nobInputField: UITextField!
     @IBOutlet weak var viewPropButtonOutlet: UIButton!
@@ -36,7 +37,12 @@ class IntroViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.introBody.setContentOffset(CGPointZero, animated: false)
+        self.introBody.scrollRangeToVisible(NSRange(location: 0, length: 0))
     }
     
     //MARK: Notifcation for KeyboardWillShow, KeyboardWillHide, applicationWillResignActive, as well as the deinit method

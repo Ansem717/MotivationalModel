@@ -9,7 +9,7 @@
         <!--Goto View Controller-->
         <scene sceneID="xzU-yM-iO9">
             <objects>
-                <viewController id="XHM-40-DTc" customClass="GotoViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XHM-40-DTc" customClass="GotoViewController" customModule="Business_Model_Explorer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rXL-Dp-bwc"/>
                         <viewControllerLayoutGuide type="bottom" id="EQ1-2v-WwQ"/>
@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pqx-lD-Glk">
-                                <rect key="frame" x="0.0" y="64" width="600" height="436"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="480"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g90-tL-YJz">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <state key="normal" title="Close">
@@ -33,7 +33,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCx-RR-Frl">
-                                        <rect key="frame" x="0.0" y="40" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="44" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" white="0.038459521810000001" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9n-yf-5dP">
-                                        <rect key="frame" x="0.0" y="80" width="600" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="88" width="600" height="40"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJw-bP-RCm">
-                                        <rect key="frame" x="0.0" y="120" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="133" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,7 +69,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVj-Xz-fkj">
-                                        <rect key="frame" x="0.0" y="160" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="177" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZD4-uB-f8t">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="221" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,7 +93,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uh-F5-EQr">
-                                        <rect key="frame" x="0.0" y="240" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="265" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,7 +105,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWK-TA-hi2">
-                                        <rect key="frame" x="0.0" y="280" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="309" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wC0-qt-Uhk">
-                                        <rect key="frame" x="0.0" y="320" width="600" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="353" width="600" height="40"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,7 +129,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hT-0N-WX5">
-                                        <rect key="frame" x="0.0" y="361" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="397" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,7 +141,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnG-1y-sQZ">
-                                        <rect key="frame" x="0.0" y="401" width="600" height="35"/>
+                                        <rect key="frame" x="0.0" y="441" width="600" height="39"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
                                         <color key="tintColor" red="0.84076522440000001" green="0.84076522440000001" blue="0.84076522440000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,7 +161,7 @@
                             <constraint firstItem="pqx-lD-Glk" firstAttribute="top" secondItem="rXL-Dp-bwc" secondAttribute="bottom" id="DPE-N6-3EX"/>
                             <constraint firstAttribute="trailing" secondItem="pqx-lD-Glk" secondAttribute="trailing" id="Lzt-r4-0of"/>
                             <constraint firstItem="pqx-lD-Glk" firstAttribute="leading" secondItem="XbW-DK-iuT" secondAttribute="leading" id="OLK-nh-aBD"/>
-                            <constraint firstItem="EQ1-2v-WwQ" firstAttribute="top" secondItem="pqx-lD-Glk" secondAttribute="bottom" constant="100" id="rZg-La-nvX"/>
+                            <constraint firstItem="EQ1-2v-WwQ" firstAttribute="top" secondItem="pqx-lD-Glk" secondAttribute="bottom" constant="56" id="rZg-La-nvX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3P9-QC-kAi"/>
@@ -186,7 +186,7 @@
         <!--Menu View Controller-->
         <scene sceneID="w8v-4j-jAu">
             <objects>
-                <viewController id="jfz-qY-qJQ" customClass="MenuViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jfz-qY-qJQ" customClass="MenuViewController" customModule="Business_Model_Explorer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tkt-ze-Vua"/>
                         <viewControllerLayoutGuide type="bottom" id="72V-p4-7b5"/>
@@ -302,7 +302,7 @@
         <!--About View Controller-->
         <scene sceneID="yQW-YW-0fs">
             <objects>
-                <viewController id="D0f-wk-Cdi" customClass="AboutViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D0f-wk-Cdi" customClass="AboutViewController" customModule="Business_Model_Explorer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Bm-Gs-Ffh"/>
                         <viewControllerLayoutGuide type="bottom" id="xWy-ZE-DdJ"/>
@@ -356,7 +356,7 @@
         <!--Intro View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IntroViewController" customModule="Business_Model_Explorer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -365,44 +365,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="44F-OF-P3g">
-                                <rect key="frame" x="27" y="459" width="549" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="jwL-YY-3P7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4yN-Fg-pg5"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Business:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIT-Yf-5QU">
-                                <rect key="frame" x="228" y="430" width="142.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Wn8-Nw-t5H"/>
-                                </constraints>
+                                <rect key="frame" x="229" y="426" width="142.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGH-Zh-BWw">
-                                <rect key="frame" x="20" y="72" width="560" height="350"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="vO8-gu-OJ9"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-eU-Caf">
-                                <rect key="frame" x="32" y="45" width="535" height="320"/>
-                                <string key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
- 
-Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </string>
-                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="18"/>
-                                <color key="textColor" red="0.050980392159999999" green="0.31372549020000001" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLC-Jj-BxP">
-                                <rect key="frame" x="20" y="519" width="560" height="30"/>
+                                <rect key="frame" x="20" y="515" width="560" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <size key="titleShadowOffset" width="2" height="2"/>
@@ -414,25 +384,39 @@ Most businesses today have more than one model, and a future version of this app
                                     <segue destination="XCk-Je-x53" kind="show" identifier="HomeToValuePropSegue" id="01V-uM-kpP"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-7h-6aC">
+                                <rect key="frame" x="20" y="72" width="560" height="346.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">The Enterprise Business Model tool assists business leaders, planners, founders, and investors in designing, evolving, and sharing your ideas for a business model.  Using this tool to think about the individual elements of a business independently, you can develop a better understanding of what you are actually building, and can develop more realistic plans for success.  
+ 
+Most businesses today have more than one model, and a future version of this app will allow you to combine multiple business models into a single enterprise, illustrating synergies and highlighting possible points of concern. </mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="44F-OF-P3g">
+                                <rect key="frame" x="20" y="455" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4yN-Fg-pg5"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="8" id="2Ay-9W-GGf"/>
-                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="451-RE-n15"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLC-Jj-BxP" secondAttribute="bottom" constant="51" id="84M-Cb-RSt"/>
-                            <constraint firstAttribute="trailing" secondItem="nGH-Zh-BWw" secondAttribute="trailing" constant="20" id="9S6-y1-4J3"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-13" id="ENk-uD-FDL"/>
-                            <constraint firstItem="nGH-Zh-BWw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="K5c-Ml-WGc"/>
-                            <constraint firstItem="nGH-Zh-BWw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="KI2-tf-rQm"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="CL9-eU-Caf" secondAttribute="bottom" constant="65" id="Knv-im-rQ6"/>
-                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="top" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="30" id="Qfc-WV-VU5"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="CL9-eU-Caf" secondAttribute="leading" constant="-5" id="coh-A5-WgA"/>
-                            <constraint firstAttribute="bottom" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="111" id="hb3-ga-3Mj"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="ZLC-Jj-BxP" secondAttribute="leading" constant="7" id="jv1-kJ-v3w"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="12" id="rHa-lW-JvR"/>
-                            <constraint firstItem="CL9-eU-Caf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-19" id="saF-qN-msM"/>
-                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.75" id="snY-ka-4Dx"/>
-                            <constraint firstItem="44F-OF-P3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1.5" id="zKM-qF-x8S"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="Yfh-7h-6aC" secondAttribute="bottom" constant="8" id="2qY-gO-dhC"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="9mx-s3-0dc"/>
+                            <constraint firstAttribute="trailing" secondItem="ZLC-Jj-BxP" secondAttribute="trailing" constant="20" id="BOr-oS-aB8"/>
+                            <constraint firstAttribute="trailing" secondItem="44F-OF-P3g" secondAttribute="trailing" constant="20" id="G11-O4-uQu"/>
+                            <constraint firstItem="44F-OF-P3g" firstAttribute="top" secondItem="SIT-Yf-5QU" secondAttribute="bottom" constant="8" id="IGs-bm-8Nx"/>
+                            <constraint firstItem="Yfh-7h-6aC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="PsP-tq-nAz"/>
+                            <constraint firstAttribute="trailing" secondItem="Yfh-7h-6aC" secondAttribute="trailing" constant="20" id="SXg-DK-MSb"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UNL-au-UQC"/>
+                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="XhA-kC-Hsh"/>
+                            <constraint firstItem="ZLC-Jj-BxP" firstAttribute="top" secondItem="44F-OF-P3g" secondAttribute="bottom" constant="30" id="ozT-qO-vGR"/>
+                            <constraint firstItem="SIT-Yf-5QU" firstAttribute="top" secondItem="Yfh-7h-6aC" secondAttribute="bottom" constant="8" id="uft-gH-zIQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZLC-Jj-BxP" secondAttribute="bottom" constant="51" id="upC-IS-zJN"/>
+                            <constraint firstItem="Yfh-7h-6aC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="zy7-Gi-lRw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Y1s-y3-EL8">
@@ -452,7 +436,7 @@ Most businesses today have more than one model, and a future version of this app
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="backButton" destination="pfa-o2-1hV" id="Xqh-ne-xCM"/>
-                        <outlet property="introBody" destination="CL9-eU-Caf" id="a9V-mb-vd7"/>
+                        <outlet property="introBody" destination="Yfh-7h-6aC" id="Ezb-QI-GiG"/>
                         <outlet property="nobInputField" destination="44F-OF-P3g" id="NQB-ln-hqB"/>
                         <outlet property="nobLabel" destination="SIT-Yf-5QU" id="XSO-ev-aI0"/>
                         <outlet property="viewPropButtonOutlet" destination="ZLC-Jj-BxP" id="dGq-HO-kBL"/>
@@ -466,7 +450,7 @@ Most businesses today have more than one model, and a future version of this app
         <!--Adaptive View Controller-->
         <scene sceneID="eOx-Ok-tXy">
             <objects>
-                <viewController id="XCk-Je-x53" customClass="AdaptiveViewController" customModule="MotivationalModel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XCk-Je-x53" customClass="AdaptiveViewController" customModule="Business_Model_Explorer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3MI-Ze-NSn"/>
                         <viewControllerLayoutGuide type="bottom" id="O7b-7A-Ut7"/>
@@ -689,8 +673,8 @@ Most businesses today have more than one model, and a future version of this app
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qWp-Ru-Fal"/>
-        <segue reference="0ff-92-jji"/>
+        <segue reference="BTX-Fs-qy7"/>
         <segue reference="WjQ-BQ-LbO"/>
+        <segue reference="Az2-Ci-68t"/>
     </inferredMetricsTieBreakers>
 </document>
