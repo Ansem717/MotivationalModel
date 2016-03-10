@@ -484,7 +484,7 @@ Most businesses today have more than one model, and a future version of this app
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-C7-gnZ">
-                                <rect key="frame" x="200" y="500" width="97" height="60"/>
+                                <rect key="frame" x="180" y="500" width="97" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="U40-th-tj7"/>
                                     <constraint firstAttribute="height" constant="60" id="c6d-NJ-YiD"/>
@@ -495,7 +495,7 @@ Most businesses today have more than one model, and a future version of this app
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NA-GC-Vgq">
-                                <rect key="frame" x="260" y="445" width="97" height="60"/>
+                                <rect key="frame" x="240" y="445" width="97" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="Mqs-BG-x09"/>
                                     <constraint firstAttribute="height" constant="60" id="NlB-Zq-m8J"/>
@@ -516,17 +516,6 @@ Most businesses today have more than one model, and a future version of this app
                                     <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="dCz-cb-mtF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-dQ-fCZ">
-                                <rect key="frame" x="140" y="445" width="97" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="YSH-q1-juG"/>
-                                    <constraint firstAttribute="width" constant="97" id="lBP-f9-wvX"/>
-                                </constraints>
-                                <state key="normal" title="Button3"/>
-                                <connections>
-                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="IHL-VY-hcY"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Td-fn-wF6">
                                 <rect key="frame" x="20" y="72" width="560" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -540,6 +529,17 @@ Most businesses today have more than one model, and a future version of this app
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgF-dQ-fCZ">
+                                <rect key="frame" x="120" y="445" width="97" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="YSH-q1-juG"/>
+                                    <constraint firstAttribute="width" constant="97" id="lBP-f9-wvX"/>
+                                </constraints>
+                                <state key="normal" title="Button3"/>
+                                <connections>
+                                    <action selector="nextpageButtonPressed:" destination="XCk-Je-x53" eventType="touchUpInside" id="IHL-VY-hcY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.19215686274509802" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -550,7 +550,7 @@ Most businesses today have more than one model, and a future version of this app
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="JgF-dQ-fCZ" secondAttribute="bottom" constant="95" identifier="3" id="2pz-MC-6Nw"/>
                             <constraint firstItem="n2G-6f-Uji" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" identifier="1" id="9n5-G0-yte"/>
                             <constraint firstItem="uuD-pc-97j" firstAttribute="top" secondItem="Ga9-qX-2aM" secondAttribute="bottom" constant="10" id="Dbz-5Q-vLr"/>
-                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="240" identifier="5" id="GUR-Jg-iM6"/>
+                            <constraint firstItem="0NA-GC-Vgq" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="240" identifier="5" id="GUR-Jg-iM6"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="top" secondItem="3MI-Ze-NSn" secondAttribute="bottom" constant="8" id="ODW-kO-ako"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="Sfc-5D-bv1"/>
                             <constraint firstAttribute="trailing" secondItem="8Td-fn-wF6" secondAttribute="trailing" constant="20" id="a9T-xR-Cqz"/>
@@ -559,8 +559,8 @@ Most businesses today have more than one model, and a future version of this app
                             <constraint firstItem="O7b-7A-Ut7" firstAttribute="top" secondItem="e0O-C7-gnZ" secondAttribute="bottom" constant="40" identifier="4" id="cUV-xW-lPe"/>
                             <constraint firstAttribute="trailing" secondItem="uuD-pc-97j" secondAttribute="trailing" constant="20" id="d9A-B4-lH7"/>
                             <constraint firstItem="8Td-fn-wF6" firstAttribute="centerX" secondItem="SkI-Dj-TTh" secondAttribute="centerX" id="eFu-bX-YlU"/>
-                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="180" identifier="4" id="ecy-mx-8ic"/>
-                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leadingMargin" constant="120" identifier="3" id="hry-aa-gWd"/>
+                            <constraint firstItem="e0O-C7-gnZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="180" identifier="4" id="ecy-mx-8ic"/>
+                            <constraint firstItem="JgF-dQ-fCZ" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="120" identifier="3" id="hry-aa-gWd"/>
                             <constraint firstItem="Ga9-qX-2aM" firstAttribute="top" secondItem="8Td-fn-wF6" secondAttribute="bottom" constant="8" symbolic="YES" id="hv8-6g-SL5"/>
                             <constraint firstItem="Ga9-qX-2aM" firstAttribute="leading" secondItem="SkI-Dj-TTh" secondAttribute="leading" constant="20" id="mqf-1A-8SD"/>
                             <constraint firstAttribute="trailing" secondItem="Ga9-qX-2aM" secondAttribute="trailing" constant="20" id="nNX-MR-brR"/>

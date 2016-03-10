@@ -34,28 +34,36 @@ class AdaptiveViewController: UIViewController {
     var animationDuration: Double?
     var soonToBeSubtitle: String = ""
     var roomReferenceName: String = kValueProp
+    var screenHeight: CGFloat = 0.0
+    var screenWidth: CGFloat = 0.0
     
     //MARK: Inheritted Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         
+        screenHeight = self.view.bounds.height
+        screenWidth = self.view.bounds.width
         
-        //Notification to save data for when app is interrupted, like a user Pressing Home, getting a phone call / text, and when a user doubletaps home and terminates the app.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIApplicationWillResignActiveNotificationObserver", name: UIApplicationWillResignActiveNotification, object: nil)
         
         //Stylization
         descriptionLabel.backgroundColor = UIColor(white: 0.8, alpha: 0.9)
         descriptionLabel.editable = false
-        descriptionLabel.font = UIFont(name: "Helvetica", size: 17.0)
+        
+        let size: CGFloat = screenHeight > 660 ? 18 : 14
+        
+        descriptionLabel.font = UIFont(name: "Helvetica", size: size)
         descriptionLabel.layer.cornerRadius = 5.0
         userInputArea.layer.cornerRadius = 5.0
+        userInputArea.font = UIFont(name: "Helvetica", size: size)
         view.addSubview(descriptionLabel)
         
         for button in buttonsUIArray {
             button.backgroundColor = UIColor(red: 0.00, green: 0.50, blue: 0.00, alpha: 1.0)
             button.layer.cornerRadius = 10
             button.tintColor = UIColor(red: 0x88, green: 0xC3, blue: 0x87, alpha: 0.8)
+            button.transform = CGAffineTransformScale(button.transform, (screenHeight*(-0.0002))+1.0, (screenHeight*(-0.0002))+1.0)
         }
         
         setup(roomReferenceName)
@@ -63,6 +71,7 @@ class AdaptiveViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,15 +117,6 @@ class AdaptiveViewController: UIViewController {
                 if roomName == key {
                     soonToBeSubtitle = current.subtitles[key]!
                 }
-                
-                    /*OK HERES A TRIVIA QUESTION!s
-                    
-                    If I go from Value Prop to Customer Needs, then the above print statement should trigger.
-                    If I use GOTO to jump from Value Prop to Partner Types, then it shouldn't trigger.
-                    
-                    Does it currently trigger if I use GOTO to jump from Value Prop to Customer Needs?
-                    */
-                
             }
             
             animateLEAVE { (finished) -> () in
@@ -134,35 +134,53 @@ class AdaptiveViewController: UIViewController {
                 }
                 
                 var yPos = [CGFloat](count: 5, repeatedValue: 0.0)
+                var xPos = [CGFloat](count: 5, repeatedValue: 0.0)
                 
-                for var ii = 0; ii < nextRoom.buttons.count; ii++ {
+                let offScreen = -self.screenHeight
+                let lowerY: CGFloat = 5
+                let middleY: CGFloat = 47
+                let higherY: CGFloat = 72
+                
+                switch nextRoom.buttons.count {
+                case 2:
+                    yPos[0] = middleY; yPos[1] = middleY
+                    yPos[2] = offScreen; yPos[3] = offScreen; yPos[4] = offScreen
+                case 3:
+                    yPos[0] = middleY; yPos[1] = middleY; yPos[2] = middleY
+                    yPos[3] = offScreen; yPos[4] = offScreen
+                case 4:
+                    yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY
+                    yPos[4] = offScreen
+                case 5:
+                    yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY; yPos[4] = higherY
+                default:
+                    print("WARNING! Going to Home OR only one button IN \n \(nextRoom.title)\n\n")
+                }
+                
+                let buttonWidth = self.buttonsUIArray[0].frame.width
+                let cgbuttoncount = CGFloat(nextRoom.buttons.count)
+                let margin = self.screenWidth*0.04
+                
+                let maxAllocatedWidth = self.screenWidth - margin - margin - margin - buttonWidth
+                let evenSpacing = maxAllocatedWidth / (cgbuttoncount - 1.0)
+                
+                
+                for var ii = 0; ii < self.buttonsUIArray.count; ii++ {
                     
                     let index = ii
-                    self.buttonsUIArray[index].setTitle(nextRoom.buttons[index], forState: .Normal)
-                    var xPos = [CGFloat](count: 5, repeatedValue: 0.0)
+                    let thisXConstraint = (evenSpacing * CGFloat(index)) + margin
                     
-                    switch nextRoom.buttons.count {
-                    case 2:
-                        xPos[0] = 50;  xPos[1] = 230
-                        yPos[0] = 473; yPos[1] = 473
-                    case 3:
-                        xPos[0] = 20;  xPos[1] = 140; xPos[2] = 240
-                        yPos[0] = 473; yPos[1] = 473; yPos[2] = 473
-                    case 4:
-                        xPos[0] = 25;  xPos[1] = 99; xPos[2] = 161; xPos[3] = 235
-                        yPos[0] = 448; yPos[1] = 515; yPos[2] = 448; yPos[3] = 515
-                    case 5:
-                        xPos[0] = 20;  xPos[1] = 75;  xPos[2] = 122; xPos[3] = 185; xPos[4] = 240
-                        yPos[0] = 448; yPos[1] = 515; yPos[2] = 448; yPos[3] = 515; yPos[4] = 448
-                    default:
-                        print("WARNING! Going to Home OR only one button IN \n \(nextRoom.title)");print("")
+                    xPos[index] = index < nextRoom.buttons.count ? thisXConstraint : offScreen
+                    
+                    if index < nextRoom.buttons.count {
+                        self.buttonsUIArray[index].setTitle(nextRoom.buttons[index], forState: .Normal)
                     }
                     
                     self.leadingButtonConstraints[index].constant = xPos[index]
-                    self.trailingDescriptionConstraint.constant = -self.view.bounds.width * 2.0
-                    self.leadingDescriptionConstraint.constant = self.view.bounds.width * 2.0
-                    self.trailingUserInputConstraint.constant = -self.view.bounds.width * 2.0
-                    self.leadingUserInputConstraint.constant = self.view.bounds.width * 2.0
+                    self.trailingDescriptionConstraint.constant = -self.screenWidth * 2.0
+                    self.leadingDescriptionConstraint.constant = self.screenWidth * 2.0
+                    self.trailingUserInputConstraint.constant = -self.screenWidth * 2.0
+                    self.leadingUserInputConstraint.constant = self.screenWidth * 2.0
                     self.buttonsUIArray[index].layoutIfNeeded()
                     self.descriptionLabel.layoutIfNeeded()
                     self.userInputArea.layoutIfNeeded()
@@ -171,11 +189,21 @@ class AdaptiveViewController: UIViewController {
                 self.animateAPPEAR(yPos)
             }
             
-        } else { //From Home Page to Value Proposition
-
+        } else {
+            
+            let previousRoom = RoomsCache.shared.findRoom(prevRoomName)
+            
+            for key in previousRoom.buttons {
+                var found = false
+                if roomName == key {
+                    soonToBeSubtitle = previousRoom.subtitles[key]!
+                    found = true
+                }
+                if found { break }
+            }
+            
             self.currRoom = nextRoom
             
-            //Content change while offscreen
             self.userInputArea.text = nextRoom.userText
             self.descriptionLabel.text = nextRoom.descript
             self.navigationItem.title = nextRoom.title
@@ -186,33 +214,60 @@ class AdaptiveViewController: UIViewController {
                 button.titleLabel?.textAlignment = .Center
             }
             
-            for var ii = 0; ii < nextRoom.buttons.count; ii++ {
-                self.buttonsUIArray[ii].setTitle(nextRoom.buttons[ii], forState: .Normal)
+            var yPos = [CGFloat](count: 5, repeatedValue: 0.0)
+            var xPos = [CGFloat](count: 5, repeatedValue: 0.0)
+
+            let offScreen = -screenHeight
+            let lowerY: CGFloat = 5
+            let middleY: CGFloat = 47
+            let higherY: CGFloat = 72
+            
+            switch nextRoom.buttons.count {
+            case 2:
+                yPos[0] = middleY; yPos[1] = middleY
+                yPos[2] = offScreen; yPos[3] = offScreen; yPos[4] = offScreen
+            case 3:
+                yPos[0] = middleY; yPos[1] = middleY; yPos[2] = middleY
+                yPos[3] = offScreen; yPos[4] = offScreen
+            case 4:
+                yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY
+                yPos[4] = offScreen
+            case 5:
+                yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY; yPos[4] = higherY
+            default:
+                print("WARNING! Going to Home OR only one button IN \n \(nextRoom.title)\n\n")
             }
             
+            let buttonWidth = self.buttonsUIArray[0].frame.width
+            let cgbuttoncount = CGFloat(nextRoom.buttons.count)
+            let margin = screenWidth*0.04
+            
+            let maxAllocatedWidth = screenWidth - margin - margin - margin - buttonWidth
+            let evenSpacing = maxAllocatedWidth / (cgbuttoncount - 1.0)
+            
+            
             for var ii = 0; ii < self.buttonsUIArray.count; ii++ {
-                let index = ii
                 
-                switch index {
-                case 0:
-                   self.leadingButtonConstraints[index].constant = 50
-                   self.bottomButtonConstraints[index].constant = 47
-                case 1:
-                    self.leadingButtonConstraints[index].constant = 230
-                    self.bottomButtonConstraints[index].constant = 47
-                default:
-                    self.bottomButtonConstraints[index].constant = -200
+                let index = ii
+                let thisXConstraint = (evenSpacing * CGFloat(index)) + margin
+                
+                xPos[index] = index < nextRoom.buttons.count ? thisXConstraint : offScreen
+                
+                if index < nextRoom.buttons.count {
+                    self.buttonsUIArray[index].setTitle(nextRoom.buttons[index], forState: .Normal)
                 }
                 
+                self.leadingButtonConstraints[index].constant = xPos[index]
+                self.bottomButtonConstraints[index].constant = yPos[index]
                 self.buttonsUIArray[index].layoutIfNeeded()
-                self.backMenuButton.enabled = true
             }
+            self.backMenuButton.enabled = true
         }
     }
     
     //MARK: Animation Functions
     func animateLEAVE(completion: (finished: Bool) -> ()) {
-    
+        
         guard let currentRoomExists = self.currRoom else { return }
         let numOfButtons = currentRoomExists.buttons.count
         let animationDuration = Double(numOfButtons)*0.5
@@ -224,14 +279,14 @@ class AdaptiveViewController: UIViewController {
         
         UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.userInputArea.layoutIfNeeded()
-        }, completion: nil)
+            }, completion: nil)
         
         leadingDescriptionConstraint.constant -= view.bounds.width
         trailingDescriptionConstraint.constant += view.bounds.width
         
         UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.2, options: .CurveLinear, animations: { () -> Void in
             self.descriptionLabel.layoutIfNeeded()
-        }, completion: nil)
+            }, completion: nil)
         
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.subtitleLabel.alpha = 0.0
@@ -248,20 +303,20 @@ class AdaptiveViewController: UIViewController {
             UIView.animateWithDuration(lengthOfTimeToRise, delay: adaptDelay, options: .CurveLinear, animations: { () -> Void in
                 self.buttonsUIArray[index].layoutIfNeeded()
                 
-            }, completion: { (finished) -> Void in
-                
-                if finished {
-                    self.bottomButtonConstraints[index].constant -= 200
+                }, completion: { (finished) -> Void in
                     
-                    UIView.animateWithDuration(lengthOfTimeToFall, animations: { () -> Void in
-                        self.buttonsUIArray[index].layoutIfNeeded()
-                    }, completion: { (finished) -> Void in
+                    if finished {
+                        self.bottomButtonConstraints[index].constant -= 200
                         
-                        if index == numOfButtons-1 {
-                            completion(finished: finished)
-                        }
-                    })
-                }
+                        UIView.animateWithDuration(lengthOfTimeToFall, animations: { () -> Void in
+                            self.buttonsUIArray[index].layoutIfNeeded()
+                            }, completion: { (finished) -> Void in
+                                
+                                if index == numOfButtons-1 {
+                                    completion(finished: finished)
+                                }
+                        })
+                    }
             })
         }
     }
@@ -278,8 +333,8 @@ class AdaptiveViewController: UIViewController {
         
         UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.0, options: .CurveEaseOut, animations: { () -> Void in
             self.userInputArea.layoutIfNeeded()
-        }, completion: { (finished) -> Void in
-            self.userInputArea.scrollRangeToVisible(NSRange(location: 0, length: 0))
+            }, completion: { (finished) -> Void in
+                self.userInputArea.scrollRangeToVisible(NSRange(location: 0, length: 0))
         })
         
         leadingDescriptionConstraint.constant = 20.0
@@ -287,8 +342,8 @@ class AdaptiveViewController: UIViewController {
         
         UIView.animateWithDuration(lengthOfTimeToRise, delay: 0.3, options: .CurveEaseOut, animations: { () -> Void in
             self.descriptionLabel.layoutIfNeeded()
-        }, completion: { (finished) -> Void in
-            self.descriptionLabel.scrollRangeToVisible(NSRange(location: 0, length: 0))
+            }, completion: { (finished) -> Void in
+                self.descriptionLabel.scrollRangeToVisible(NSRange(location: 0, length: 0))
         })
         
         UIView.animateWithDuration(0.2) { () -> Void in
@@ -301,14 +356,14 @@ class AdaptiveViewController: UIViewController {
             let index = ii
             let adaptDelay = Double(index) * lengthOfTimeToRise
             
-            self.bottomButtonConstraints[index].constant = 520 - ypos[index]
+            self.bottomButtonConstraints[index].constant = ypos[index]
             
             UIView.animateWithDuration(lengthOfTimeToRise, delay: adaptDelay, options: .CurveLinear, animations: { () -> Void in
                 self.buttonsUIArray[index].layoutIfNeeded()
-            }, completion: { (finished) -> Void in
-                if index == numOfButtons-1 {
-                    self.backMenuButton.enabled = true
-                }
+                }, completion: { (finished) -> Void in
+                    if index == numOfButtons-1 {
+                        self.backMenuButton.enabled = true
+                    }
             })
         }
     }
