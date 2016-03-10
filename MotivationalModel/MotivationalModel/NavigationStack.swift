@@ -22,12 +22,12 @@ class NavigationStack {
     func printContents() {
         var current: NavigationStackRoom? = head
         
-        print("--START--")
+        print("--START NAV HIERARCHY--")
         while current != nil {
             print("\(current!.key!)")
             current = current!.next
         }
-        print("--END--\n")
+        print("--END NAV HIERARCHY--\n")
     }
     
     func addRoomToNavigationStack(key: String) {
@@ -38,7 +38,7 @@ class NavigationStack {
         var current: NavigationStackRoom? = head
         
         if key == findCurrentRoomInNavStack() {
-            return //User is now unable to re-visit the room they are already in (using Menu -> Home / Goto)
+            return
         }
         
         while current != nil {
@@ -88,13 +88,13 @@ class NavigationStack {
                 current = current?.next
             }
         }
-        print("");print("ERROR - Nav Stack - Current is nil - \(__FUNCTION__)");print("");print("");
+        print("\n\nERROR - Nav Stack - Current is nil - \(__FUNCTION__)\n\n\n");
         return kHome
     }
     
     func findPreviousRoomInNavStack() -> String {
         if self.isEmpty() {
-            return "EMPTY"
+            return kHome
         }
         
         var current: NavigationStackRoom? = head
@@ -107,7 +107,7 @@ class NavigationStack {
                 current = current?.next
             }
         }
-        print("");print("ERROR - Nav Stack - Current is nil - \(__FUNCTION__)");print("");print("");
+        print("\n\nERROR - Nav Stack - Current is nil - \(__FUNCTION__)\n\n\n")
         return kHome
         
     }
@@ -116,7 +116,7 @@ class NavigationStack {
         if self.isEmpty() {
             return 0
         }
-        
+
         var current: NavigationStackRoom? = head
         var index: Int = 0
         
@@ -126,7 +126,6 @@ class NavigationStack {
         }
         
         return index
-        
     }
     
 }

@@ -79,8 +79,8 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kProdAndServ,
             subtitles: [
                 kCustomerNeeds : "\(kProdAndServ) satisfies \(kCustomerNeeds)",
-                kChannels : "\(kProdAndServ) delivered through \(kChannels)",
-                kCustomerType : "\(kProdAndServ) targeted to \(kCustomerType)",
+                kChannels : "\(kProdAndServ) delivers via \(kChannels)",
+                kCustomerType : "\(kProdAndServ) targets \(kCustomerType)",
                 kRequiredComp : "\(kRequiredComp) delivers \(kProdAndServ)"],
             abbreviation: "P&S",
             descript: "This element of the business model contains a description of the specific products and/or services offered by the business. It is important to recognize that the specific products or services developed must derive from customer demands in order to effectively provide value. This relationship, between customers demands and the products offered, is the central focus of marketing in many organizations.",
@@ -90,9 +90,9 @@ class RoomsCache { //Singleton to form the rooms - permanently
             title: kChannels,
             subtitles: [
                 kCostAndRev : "\(kChannels) drive \(kCostAndRev)",
-                kProdAndServ : "\(kProdAndServ) delivered through \(kChannels)",
+                kProdAndServ : "\(kProdAndServ) delivers via \(kChannels)",
                 kCustomerType : "\(kChannels) serves \(kCustomerType)",
-                kGeoAndLocal : "\(kChannels) affect and demand \(kGeoAndLocal)",
+                kGeoAndLocal : "\(kChannels) affect & demand \(kGeoAndLocal)",
                 kPartnerType : "\(kPartnerType) affects \(kChannels)"],
             abbreviation: "C",
             descript: "This entity represents sales, distribution and communication channels in the business model. Distribution channels are the mechanisms by which the customer's product or service reaches the customer.\n\n\(Icons.shared.bullet)  For products, the distribution channels element will describe the flow of goods from manufacturing to market, including inventory and retailing.\n\n\(Icons.shared.bullet)  For manufacturing organizations, this element also describes the sourcing of parts and construction of the product or products themselves. \n\n\(Icons.shared.bullet)  For services, this element describes the location, management, and provisioning of service resources to the customers on an as-needed basis.\n\nSales channels are the mechanisms by which the product or service is sold to the customer. This typically includes owned retail, owned online, partner retail, partner online, and mobile salesforce.\n\nCommunication channels include the mechanisms by which the product's availability and features are described to the customer.  This includes advertising (TV, Radio, Print, Internet, Mobile, Billboard, Direct mail, In-store, In-partner-store) as well as word of mouth, event promotions, and seminars.",
@@ -121,7 +121,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
         Room(
             title: kGeoAndLocal,
             subtitles: [
-                kChannels : "\(kChannels) affect and demand \(kGeoAndLocal)",
+                kChannels : "\(kChannels) affect & demand \(kGeoAndLocal)",
                 kPartnerType : "\(kPartnerType) affects \(kGeoAndLocal)"],
             abbreviation: "G&L",
             descript: "The geographies and locales element describes the specific physical locations and contexts in which the products and services will be offered. This is a critical and necessary part of the business model as it is both enabled by, and directly impacted by, the abilities of various business partners as well as the demands of the customers. Many evaluations of a business model will focus on opportunities to extend the business through the consideration of additional geographies.",
@@ -132,7 +132,7 @@ class RoomsCache { //Singleton to form the rooms - permanently
             subtitles: [
                 kChannels : "\(kChannels) serves \(kCustomerType)",
                 kCustomerNeeds : "\(kCustomerType) has \(kCustomerNeeds)",
-                kProdAndServ : "\(kProdAndServ) targeted to \(kCustomerType)"],
+                kProdAndServ : "\(kProdAndServ) targets \(kCustomerType)"],
             abbreviation: "CT",
             descript: "A customer type is a segment or grouping of customers based on common attributes, useful for the sake of documenting and describing shared demands, interactions, concerns, or assets.  Examples: \"Large volume distributor,\" \"Merchant Bank,\" \"Small office / home office,\" \"General E-mail user\"",
             buttons: [kChannels, kProdAndServ, kCustomerNeeds]

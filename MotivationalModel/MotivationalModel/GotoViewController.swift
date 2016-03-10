@@ -41,15 +41,9 @@ class GotoViewController: UIViewController {
             let roomsIndex = ii+1
             let thisRoom = RoomsCache.shared.rooms[roomsIndex]
             
-            var prefixedTitle: NSMutableAttributedString? = nil
+            let prefixedTitle = thisRoom.userText!.isEmpty ? Icons.shared.prefixRedWarning(thisRoom.title) : Icons.shared.prefixGreencheckmark(thisRoom.title)
             
-            if let thisRoomUserInput = thisRoom.userText where !thisRoomUserInput.isEmpty {
-                prefixedTitle = Icons.shared.prefixGreencheckmark(thisRoom.title)
-            } else {
-                prefixedTitle = Icons.shared.prefixRedWarning(thisRoom.title)
-            }
-            
-            gotoButtonsCollection[gotoIndex].setAttributedTitle(prefixedTitle!, forState: .Normal)
+            gotoButtonsCollection[gotoIndex].setAttributedTitle(prefixedTitle, forState: .Normal)
         }
     }
     
@@ -57,18 +51,18 @@ class GotoViewController: UIViewController {
     //MARK: One button function... to rule them all!
     @IBAction func globalGotoButtonFunction(sender: UIButton) {
         guard let buttonKey = sender.titleLabel?.text else { fatalError("22") }
-        print(buttonKey)
-        switch buttonKey {
-        case "Close":
+        if buttonKey == "Close" {
             dismissViewControllerAnimated(true, completion: nil)
-        default:
-            performSegueWithIdentifier("GotoToAdaptView", sender: buttonKey)
+            return
         }
+        performSegueWithIdentifier("GotoToAdaptView", sender: buttonKey)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GotoToAdaptView" {
             guard var buttonKey = sender as? String else { fatalError("103") }
+            
+            //remove first two characters of string (checkmark or !, and whitespace)
             buttonKey.removeAtIndex(buttonKey.startIndex);buttonKey.removeAtIndex(buttonKey.startIndex)
             if let AVC = segue.destinationViewController as? AdaptiveViewController {
                 AVC.roomReferenceName = buttonKey

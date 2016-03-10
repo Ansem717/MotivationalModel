@@ -47,16 +47,15 @@ class AdaptiveViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "UIApplicationWillResignActiveNotificationObserver", name: UIApplicationWillResignActiveNotification, object: nil)
         
-        //Stylization
         descriptionLabel.backgroundColor = UIColor(white: 0.8, alpha: 0.9)
         descriptionLabel.editable = false
         
-        let size: CGFloat = screenHeight > 660 ? 18 : 14
+        let fontSize: CGFloat = screenHeight > 660 ? 18 : 14
         
-        descriptionLabel.font = UIFont(name: "Helvetica", size: size)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: fontSize)
         descriptionLabel.layer.cornerRadius = 5.0
         userInputArea.layer.cornerRadius = 5.0
-        userInputArea.font = UIFont(name: "Helvetica", size: size)
+        userInputArea.font = UIFont(name: "Helvetica", size: fontSize)
         view.addSubview(descriptionLabel)
         
         for button in buttonsUIArray {
@@ -84,7 +83,7 @@ class AdaptiveViewController: UIViewController {
         self.descriptionLabel.setContentOffset(CGPointZero, animated: false)
     }
     
-    //MARK: UIApplication Will Resign Active notification observer function & Deinit
+    //MARK: Resign Active Notification Observer & Deinit
     func UIApplicationWillResignActiveNotificationObserver() {
         if let current = self.currRoom {
             if let userText = self.userInputArea.text {
@@ -97,7 +96,7 @@ class AdaptiveViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    //MARK: Large Setup Function
+    //MARK: Setup Function
     func setup(roomName: String) {
         
         self.backMenuButton.enabled = false
@@ -107,182 +106,110 @@ class AdaptiveViewController: UIViewController {
         NavigationStack.shared.printContents()
         
         let prevRoomName = NavigationStack.shared.findPreviousRoomInNavStack()
-        let prevRoomShorthand = RoomsCache.shared.findRoom(prevRoomName).abbreviation
+        let previousRoom = RoomsCache.shared.findRoom(prevRoomName)
+        let prevRoomShorthand = previousRoom.abbreviation
+        
+        for key in previousRoom.buttons {
+            var found = false
+            if roomName == key {
+                soonToBeSubtitle = previousRoom.subtitles[key]!
+                found = true
+            }
+            if found { break }
+        }
         
         if let current = self.currRoom {
             if let userText = self.userInputArea.text {
                 RoomsCache.shared.saveRoom(userText, roomName: current.title)
             }
-            for key in current.buttons {
-                if roomName == key {
-                    soonToBeSubtitle = current.subtitles[key]!
-                }
-            }
-            
-            animateLEAVE { (finished) -> () in
-                self.currRoom = nextRoom
-                
-                //Content change while offscreen
-                self.userInputArea.text = nextRoom.userText
-                self.descriptionLabel.text = nextRoom.descript
-                self.navigationItem.title = nextRoom.title
-                self.subtitleLabel.text = self.soonToBeSubtitle
-                self.backMenuButton.title = "\(Icons.shared.prevArrow) \(prevRoomShorthand)"
-                for button in self.buttonsUIArray {
-                    button.titleLabel?.lineBreakMode = .ByWordWrapping
-                    button.titleLabel?.textAlignment = .Center
-                }
-                
-                var yPos = [CGFloat](count: 5, repeatedValue: 0.0)
-                var xPos = [CGFloat](count: 5, repeatedValue: 0.0)
-                
-                let offScreen = -self.screenHeight
-                let lowerY: CGFloat = 5
-                let middleY: CGFloat = 47
-                let higherY: CGFloat = 72
-                
-                switch nextRoom.buttons.count {
-                case 2:
-                    yPos[0] = middleY; yPos[1] = middleY
-                    yPos[2] = offScreen; yPos[3] = offScreen; yPos[4] = offScreen
-                case 3:
-                    yPos[0] = middleY; yPos[1] = middleY; yPos[2] = middleY
-                    yPos[3] = offScreen; yPos[4] = offScreen
-                case 4:
-                    yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY
-                    yPos[4] = offScreen
-                case 5:
-                    yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY; yPos[4] = higherY
-                default:
-                    print("WARNING! Going to Home OR only one button IN \n \(nextRoom.title)\n\n")
-                }
-                
-                let buttonWidth = self.buttonsUIArray[0].frame.width
-                let cgbuttoncount = CGFloat(nextRoom.buttons.count)
-                let margin = self.screenWidth*0.04
-                
-                let maxAllocatedWidth = self.screenWidth - margin - margin - margin - buttonWidth
-                let evenSpacing = maxAllocatedWidth / (cgbuttoncount - 1.0)
-                
-                
-                for var ii = 0; ii < self.buttonsUIArray.count; ii++ {
-                    
-                    let index = ii
-                    let thisXConstraint = (evenSpacing * CGFloat(index)) + margin
-                    
-                    xPos[index] = index < nextRoom.buttons.count ? thisXConstraint : offScreen
-                    
-                    if index < nextRoom.buttons.count {
-                        self.buttonsUIArray[index].setTitle(nextRoom.buttons[index], forState: .Normal)
-                    }
-                    
-                    self.leadingButtonConstraints[index].constant = xPos[index]
-                    self.trailingDescriptionConstraint.constant = -self.screenWidth * 2.0
-                    self.leadingDescriptionConstraint.constant = self.screenWidth * 2.0
-                    self.trailingUserInputConstraint.constant = -self.screenWidth * 2.0
-                    self.leadingUserInputConstraint.constant = self.screenWidth * 2.0
-                    self.buttonsUIArray[index].layoutIfNeeded()
-                    self.descriptionLabel.layoutIfNeeded()
-                    self.userInputArea.layoutIfNeeded()
-                }
-                
+            self.animateLEAVE { (finished) -> () in
+                self.changeContent(nextRoom, prevRoomShorthand: prevRoomShorthand)
+                let yPos = self.readyButtonPositions(nextRoom, currRoomExists: true)
                 self.animateAPPEAR(yPos)
             }
-            
         } else {
-            
-            let previousRoom = RoomsCache.shared.findRoom(prevRoomName)
-            
-            for key in previousRoom.buttons {
-                var found = false
-                if roomName == key {
-                    soonToBeSubtitle = previousRoom.subtitles[key]!
-                    found = true
-                }
-                if found { break }
-            }
-            
-            self.currRoom = nextRoom
-            
-            self.userInputArea.text = nextRoom.userText
-            self.descriptionLabel.text = nextRoom.descript
-            self.navigationItem.title = nextRoom.title
-            self.subtitleLabel.text = self.soonToBeSubtitle
-            self.backMenuButton.title = "\(Icons.shared.prevArrow) \(prevRoomShorthand)"
-            for button in self.buttonsUIArray {
-                button.titleLabel?.lineBreakMode = .ByWordWrapping
-                button.titleLabel?.textAlignment = .Center
-            }
-            
-            var yPos = [CGFloat](count: 5, repeatedValue: 0.0)
-            var xPos = [CGFloat](count: 5, repeatedValue: 0.0)
-
-            let offScreen = -screenHeight
-            let lowerY: CGFloat = 5
-            let middleY: CGFloat = 47
-            let higherY: CGFloat = 72
-            
-            switch nextRoom.buttons.count {
-            case 2:
-                yPos[0] = middleY; yPos[1] = middleY
-                yPos[2] = offScreen; yPos[3] = offScreen; yPos[4] = offScreen
-            case 3:
-                yPos[0] = middleY; yPos[1] = middleY; yPos[2] = middleY
-                yPos[3] = offScreen; yPos[4] = offScreen
-            case 4:
-                yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY
-                yPos[4] = offScreen
-            case 5:
-                yPos[0] = higherY; yPos[1] = lowerY; yPos[2] = higherY; yPos[3] = lowerY; yPos[4] = higherY
-            default:
-                print("WARNING! Going to Home OR only one button IN \n \(nextRoom.title)\n\n")
-            }
-            
-            let buttonWidth = self.buttonsUIArray[0].frame.width
-            let cgbuttoncount = CGFloat(nextRoom.buttons.count)
-            let margin = screenWidth*0.04
-            
-            let maxAllocatedWidth = screenWidth - margin - margin - margin - buttonWidth
-            let evenSpacing = maxAllocatedWidth / (cgbuttoncount - 1.0)
-            
-            
-            for var ii = 0; ii < self.buttonsUIArray.count; ii++ {
-                
-                let index = ii
-                let thisXConstraint = (evenSpacing * CGFloat(index)) + margin
-                
-                xPos[index] = index < nextRoom.buttons.count ? thisXConstraint : offScreen
-                
-                if index < nextRoom.buttons.count {
-                    self.buttonsUIArray[index].setTitle(nextRoom.buttons[index], forState: .Normal)
-                }
-                
-                self.leadingButtonConstraints[index].constant = xPos[index]
-                self.bottomButtonConstraints[index].constant = yPos[index]
-                self.buttonsUIArray[index].layoutIfNeeded()
-            }
+            self.changeContent(nextRoom, prevRoomShorthand: prevRoomShorthand)
+            self.readyButtonPositions(nextRoom, currRoomExists: false)
             self.backMenuButton.enabled = true
         }
     }
+    
+    //MARK: Setup Helper Functions
+    func changeContent(nextRoom: Room, prevRoomShorthand: String) {
+        self.currRoom = nextRoom
+        self.userInputArea.text = nextRoom.userText
+        self.descriptionLabel.text = nextRoom.descript
+        self.navigationItem.title = nextRoom.title
+        self.subtitleLabel.text = self.soonToBeSubtitle
+        self.backMenuButton.title = "\(Icons.shared.prevArrow) \(prevRoomShorthand)"
+        for button in self.buttonsUIArray {
+            button.titleLabel?.lineBreakMode = .ByWordWrapping
+            button.titleLabel?.textAlignment = .Center
+        }
+    }
+    
+    func readyButtonPositions(nextRoom: Room, currRoomExists: Bool) -> [CGFloat] {
+        let buttonWidth = self.buttonsUIArray[0].frame.width                    // Width of button
+        let numOfButtons = CGFloat(nextRoom.buttons.count)                      // number of buttons in CGFloat form
+        let margin = self.screenWidth*0.04                                      // Margin relative to screen width (also b for line)
+        let maxAllocatedWidth = self.screenWidth - (margin * 3) - buttonWidth   // Numerator of Slope
+        let evenSpacing = maxAllocatedWidth / (numOfButtons - 1.0)              // SLOPE (m) for linear equation
+        
+        var yPos = [CGFloat](count: 5, repeatedValue: 0.0)
+        var xPos = [CGFloat](count: 5, repeatedValue: 0.0)
+        var isHigh = true
+        
+        for var index = 0; index < self.buttonsUIArray.count; index++ {
+            
+            let thisXConstraint = (evenSpacing * CGFloat(index)) + margin       // y = mx + b
+            
+            xPos[index] = index < nextRoom.buttons.count ? thisXConstraint : -self.screenHeight
+            yPos[index] = -200
+            
+            if index < nextRoom.buttons.count {
+                self.buttonsUIArray[index].setTitle(nextRoom.buttons[index], forState: .Normal)
+                yPos[index] = (numOfButtons == 2.0 || numOfButtons == 3.0) ? 47 : (isHigh ? 72 : 5)
+                isHigh = !isHigh
+            }
+            
+            if !currRoomExists {
+                self.bottomButtonConstraints[index].constant = yPos[index]
+            }
+            self.leadingButtonConstraints[index].constant = xPos[index]
+            self.buttonsUIArray[index].layoutIfNeeded()
+        }
+
+        
+        if currRoomExists {
+            self.trailingDescriptionConstraint.constant = -self.screenWidth * 2.0
+            self.leadingDescriptionConstraint.constant = self.screenWidth * 2.0
+            self.trailingUserInputConstraint.constant = -self.screenWidth * 2.0
+            self.leadingUserInputConstraint.constant = self.screenWidth * 2.0
+            self.descriptionLabel.layoutIfNeeded()
+            self.userInputArea.layoutIfNeeded()
+        }
+        
+        return yPos
+    }
+    
     
     //MARK: Animation Functions
     func animateLEAVE(completion: (finished: Bool) -> ()) {
         
         guard let currentRoomExists = self.currRoom else { return }
         let numOfButtons = currentRoomExists.buttons.count
-        let animationDuration = Double(numOfButtons)*0.5
-        let lengthOfTimeToRise = (animationDuration) / Double(numOfButtons) / 4
+        let lengthOfTimeToRise = (Double(numOfButtons)*0.5) / Double(numOfButtons) / 4
         let lengthOfTimeToFall = lengthOfTimeToRise * 3
         
-        leadingUserInputConstraint.constant -= view.bounds.width
-        trailingUserInputConstraint.constant += view.bounds.width
+        leadingUserInputConstraint.constant -= screenWidth
+        trailingUserInputConstraint.constant += screenWidth
         
         UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.0, options: .CurveLinear, animations: { () -> Void in
             self.userInputArea.layoutIfNeeded()
             }, completion: nil)
         
-        leadingDescriptionConstraint.constant -= view.bounds.width
-        trailingDescriptionConstraint.constant += view.bounds.width
+        leadingDescriptionConstraint.constant -= screenWidth
+        trailingDescriptionConstraint.constant += screenWidth
         
         UIView.animateWithDuration(lengthOfTimeToFall, delay: 0.2, options: .CurveLinear, animations: { () -> Void in
             self.descriptionLabel.layoutIfNeeded()
@@ -325,8 +252,7 @@ class AdaptiveViewController: UIViewController {
         
         guard let currentRoomExists = self.currRoom else { return }
         let numOfButtons = currentRoomExists.buttons.count
-        let animationDuration = Double(numOfButtons)*0.3
-        let lengthOfTimeToRise = (animationDuration) / Double(currentRoomExists.buttons.count)
+        let lengthOfTimeToRise = (Double(numOfButtons)*0.3) / Double(currentRoomExists.buttons.count)
         
         leadingUserInputConstraint.constant = 20.0
         trailingUserInputConstraint.constant = 20.0
@@ -354,11 +280,9 @@ class AdaptiveViewController: UIViewController {
         for var ii = 0; ii < self.currRoom?.buttons.count; ii++ {
             
             let index = ii
-            let adaptDelay = Double(index) * lengthOfTimeToRise
-            
             self.bottomButtonConstraints[index].constant = ypos[index]
             
-            UIView.animateWithDuration(lengthOfTimeToRise, delay: adaptDelay, options: .CurveLinear, animations: { () -> Void in
+            UIView.animateWithDuration(lengthOfTimeToRise, delay: (Double(index) * lengthOfTimeToRise), options: .CurveLinear, animations: { () -> Void in
                 self.buttonsUIArray[index].layoutIfNeeded()
                 }, completion: { (finished) -> Void in
                     if index == numOfButtons-1 {
@@ -382,19 +306,13 @@ class AdaptiveViewController: UIViewController {
         //2) check if I'm going to kHome.
         let roomKey = NavigationStack.shared.findCurrentRoomInNavStack()
         if roomKey == kHome {
-            //REVERSE PUSH? No time for fancy right now. Basic forward animations and pushes will have to do.
             performSegueWithIdentifier("AdaptToHomeSegue", sender: nil)
-        } else {
-            //REVERSE ANIMATE?
-            setup(roomKey)
+            return
         }
+        setup(roomKey)
     }
     
     //MARK: Navigation functions:
-    @IBAction func unwindToAdaptiveView(unwindSegue: UIStoryboardSegue) {
-        print("TIME TRAVEL!!")
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let current = self.currRoom {
             if let userText = self.userInputArea.text {
@@ -409,21 +327,7 @@ extension AdaptiveViewController: UITextViewDelegate {
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
-            return true
         }
         return true
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

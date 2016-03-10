@@ -380,7 +380,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="viewPropButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iLC-j2-bNN"/>
                                     <segue destination="XCk-Je-x53" kind="show" identifier="HomeToValuePropSegue" id="01V-uM-kpP"/>
                                 </connections>
                             </button>
@@ -672,8 +671,8 @@ Most businesses today have more than one model, and a future version of this app
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qWp-Ru-Fal"/>
-        <segue reference="Az2-Ci-68t"/>
         <segue reference="WjQ-BQ-LbO"/>
+        <segue reference="Az2-Ci-68t"/>
+        <segue reference="BTX-Fs-qy7"/>
     </inferredMetricsTieBreakers>
 </document>

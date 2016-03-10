@@ -48,11 +48,21 @@ class IntroViewController: UIViewController {
     //MARK: Notifcation for KeyboardWillShow, KeyboardWillHide, applicationWillResignActive, as well as the deinit method
     
     func UIKeyboardWillShowNotificationObserver(sender: NSNotification) {
+        self.keyboardThings(true, sender: sender)
+    }
+    
+    func UIKeyboardWillHideNotificationObserver(sender: NSNotification) {
+        self.keyboardThings(false, sender: sender)
+    }
+    
+    func keyboardThings(keyboardIsShowing: Bool, sender: NSNotification) {
         guard let userInfo = sender.userInfo else { fatalError("No user info from notification") }
         guard let keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { fatalError("User info has no key of UUIKeyboardFrameBeginUserInfoKey  OR  It is not of type NSValue") }
-        let keyboardSize = keyboard.CGRectValue()
         var selfFrame = self.view.frame
-        selfFrame.origin.y -= keyboardSize.height
+        
+        selfFrame.origin.y = keyboardIsShowing ?
+            selfFrame.origin.y - keyboard.CGRectValue().height :
+            selfFrame.origin.y + keyboard.CGRectValue().height
         
         if let keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
             UIView.animateWithDuration(keyboardDuration.doubleValue, animations: { () -> Void in
@@ -63,21 +73,6 @@ class IntroViewController: UIViewController {
         }
     }
     
-    func UIKeyboardWillHideNotificationObserver(sender: NSNotification) {
-        guard let userInfo = sender.userInfo else { fatalError("No user info from notification") }
-        guard let keyboard = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { fatalError("User info has no key of UUIKeyboardFrameBeginUserInfoKey  OR  It is not of type NSValue") }
-        let keyboardSize = keyboard.CGRectValue()
-        var selfFrame = self.view.frame
-        selfFrame.origin.y += keyboardSize.height
-        
-        if let keyboardDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
-            UIView.animateWithDuration(keyboardDuration.doubleValue, animations: { () -> Void in
-                self.view.frame = selfFrame
-            })
-        } else {
-            self.view.frame = selfFrame
-        }
-    }
     
     func UIApplicationWillResignActiveNotificationObserver() {
         if let userText = self.nobInputField.text {
@@ -113,10 +108,6 @@ class IntroViewController: UIViewController {
     // Button Functions & Navigation
     @IBAction func unwindToHome(unwindSegue: UIStoryboardSegue) {
         //
-    }
-    
-    @IBAction func viewPropButton(sender: UIButton) {
-        //Seuge id is HomeToViewPropSegue
     }
     
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {

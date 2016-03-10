@@ -11,24 +11,16 @@ import MessageUI
 
 class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
-    let detail: String = Icons.shared.nextArrow
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        setupMenu()
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func setupMenu() {
-
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -36,12 +28,10 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
     
     //MARK: Button Function
-    
     @IBAction func menuButtonPressed(sender: UIButton) {
         guard let buttonName = sender.titleLabel!.text else { fatalError("Uhh?") }
         
         switch (buttonName) {
-            //Home is omitted since we're just using an unwind segue
         case "Go To": self.performSegueWithIdentifier("MenuToGotoSegue", sender: nil)
         case "E-mail": confirmBusinessName("email")
         case "Print": confirmBusinessName("print")
@@ -76,24 +66,23 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         }
         
         let emptyFieldPopup = UIAlertController(title: "Are you sure?", message: "The following fields are empty:\n\(message)", preferredStyle: .Alert)
+        
         emptyFieldPopup.addAction(UIAlertAction(title: "Continue", style: .Default, handler: { (action) -> Void in
             self.confirmUserName(destination)
         }))
         emptyFieldPopup.addAction(UIAlertAction(title: "Cancel", style: .Destructive, handler: nil))
-        
-        if !isSafe {
-            presentViewController(emptyFieldPopup, animated: true, completion: nil)
-        } else {
+
+        if isSafe {
             self.confirmUserName(destination)
+            return
         }
         
+        presentViewController(emptyFieldPopup, animated: true, completion: nil)
     }
     
     
     func confirmUserName(destination: String) {
-        if RoomsCache.shared.username == "" {
-            getUserName(destination)
-        } else {
+        if RoomsCache.shared.username != "" {
             let namePopup = UIAlertController(title: "Name", message: "Is your name \(RoomsCache.shared.username)?", preferredStyle: .Alert)
             namePopup.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
                 self.makePDF(destination)
@@ -102,8 +91,11 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 self.getUserName(destination)
             }))
             namePopup.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+            
             self.presentViewController(namePopup, animated: true, completion: nil)
+            return
         }
+        getUserName(destination)
     }
     
     func getUserName(destination: String) {
@@ -113,7 +105,7 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
             let nameTextField = namePopup.textFields![0] as UITextField
             nameTextField.autocapitalizationType = .Words
             guard let name = nameTextField.text else { fatalError("11") }
-            RoomsCache.shared.username = name
+            RoomsCache.shared.username = name.capitalizedString
             NSKeyedArchiver.archiveRootObject(RoomsCache.shared.username, toFile: String.archivePath("username"))
             self.makePDF(destination)
         }
@@ -133,13 +125,10 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
         self.presentViewController(namePopup, animated: true, completion: nil)
     }
     
-    func confirmMissingSections(destination: String) {
-        //MARK: Save for later...
-    }
-    
     func makePDF(destination: String) {
         let pdfdoc = DocumentOutput(userName: RoomsCache.shared.username)
         pdfdoc.generatePDF()
+        
         if destination == "email" {
             showEmailWithPDF()
         } else if destination == "print" {
@@ -163,7 +152,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
                 let path: NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
                 let documentDirectory = path.objectAtIndex(0)
                 let pdfPathWithFileName = documentDirectory.stringByAppendingPathComponent(fileName)
-//                print(pdfPathWithFileName);print("")
                 
                 guard let fileData = NSData(contentsOfFile: pdfPathWithFileName) else { fatalError("6") }
                 let mimeType = "application/pdf"
@@ -209,7 +197,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
     //MARK: AirPrint
     func printWithPDF() {
         
-        
         if let businessName = RoomsCache.shared.findRoom(kHome).userText {
             
             let dashedBusinessName = businessName.stringByReplacingOccurrencesOfString(" ", withString: "-")
@@ -236,7 +223,6 @@ class MenuViewController: UIViewController, MFMailComposeViewControllerDelegate 
             
         }
     }
-    
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
